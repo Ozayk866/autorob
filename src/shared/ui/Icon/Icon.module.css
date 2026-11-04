@@ -1,0 +1,8 @@
+.root {
+  display: inline-flex;
+}
+
+.root svg {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,1 @@
+export { PartnersAdminPage } from "./PartnersAdminPage";

@@ -1,0 +1,45 @@
+{
+  "common": { "loading": "Yuklanmoqda…", "save": "Saqlash", "cancel": "Bekor qilish", "back": "Orqaga" },
+  "nav": {
+    "solutions": "Yechimlar",
+    "about": "Biz haqimizda",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contacts": "Kontaktlar",
+    "main": "Asosiy",
+    "content": "Kontent",
+    "system": "Tizim",
+    "dashboard": "Dashboard",
+    "hero": "Hero slayder",
+    "posts": "Blog",
+    "team": "Jamoa",
+    "partners": "Hamkorlar",
+    "aboutContent": "Tarix va raqamlar",
+    "texts": "Sahifa matnlari",
+    "settings": "Sozlamalar",
+    "admins": "Adminlar"
+  },
+  "lead": {
+    "cta": "Ma'lumot qoldirish",
+    "name": "Ismingiz",
+    "phone": "Telefon",
+    "submit": "Yuborish",
+    "success": "Rahmat! Tez orada bog'lanamiz",
+    "errors": {
+      "name": "Ismingizni kiriting",
+      "phone": "Telefon raqamini to'liq kiriting",
+      "tooMany": "Juda ko'p urinish, birozdan keyin qayta yuboring",
+      "failed": "Yuborilmadi. Qayta urinib ko'ring yoki qo'ng'iroq qiling:"
+    }
+  },
+  "form": { "required": "Majburiy maydon", "slug": "Faqat kichik lotin harflari, raqamlar va «-»" },
+  "auth": {
+    "errors": {
+      "email": "Email noto'g'ri",
+      "password": "Parolni kiriting",
+      "passwordLength": "Parol kamida 10 belgidan iborat bo'lsin",
+      "passwordMatch": "Parollar mos emas"
+    }
+  },
+  "notFound": { "title": "Sahifa topilmadi", "home": "Bosh sahifaga qaytish" }
+}

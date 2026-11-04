@@ -1,0 +1,1 @@
+export { TeamAdminPage } from "./TeamAdminPage";
