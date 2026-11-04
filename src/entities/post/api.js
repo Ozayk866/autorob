@@ -1,17 +1,30 @@
-import { api } from "@/shared/api";
+import { adminResource, api } from "@/shared/api";
 import { toQuery } from "@/shared/lib";
 
-// TODO: endpoint'larni backend kontraktiga qarab moslang
-// Public javob: tarjima maydonlari oddiy string (?lang=). Admin javob: { uz, "uz-Cyrl", ru }.
+// Backend: docs/API_CONTRACT.md §8 (public), §10 «Maqolalar» (admin)
 
-export const getPosts = (lang, filters) => api("/api/public/posts" + toQuery({ lang, ...filters }));
-export const getPost = (slug, lang) => api(`/api/public/posts/${slug}${toQuery({ lang })}`);
-/** Prerender uchun: barcha nashr qilingan slug'lar */
-export const getPostSlugs = () => api("/api/public/posts/slugs");
+/**
+ * @typedef {{ id: string, slug: string, title: string, excerpt: string,
+ *   coverImage: import("@/shared/api/types").Image | null,
+ *   category: { slug: string, name: string }, authorName: string,
+ *   publishedAt: string, readingMinutes: number }} PostListItem
+ */
+/**
+ * @typedef {PostListItem & { body: string, seo: { metaTitle: string | null, metaDescription: string | null },
+ *   related: PostListItem[], updatedAt: string }} Post   body — tozalangan HTML
+ */
+/** @typedef {import("@/shared/api/types").PageMeta} PageMeta */
 
-export const getPostsAdmin = () => api("/api/admin/posts");
-export const getPostAdmin = (id) => api(`/api/admin/posts/${id}`);
-export const createPost = (body) => api("/api/admin/posts", { method: "POST", body });
-export const updatePost = (id, body) => api(`/api/admin/posts/${id}`, { method: "PATCH", body });
-export const deletePost = (id) => api(`/api/admin/posts/${id}`, { method: "DELETE" });
-export const reorderPosts = (ids) => api("/api/admin/posts/reorder", { method: "PATCH", body: { ids } });
+/**
+ * Sahifalangan, yangisi birinchi.
+ * @param {{ category?: string, page?: number, pageSize?: number }} [filters]  category — blog kategoriyasi slug'i
+ * @returns {Promise<{ data: PostListItem[], meta: PageMeta }>}
+ */
+export const getPosts = (lang, { category, page, pageSize } = {}) =>
+  api("/api/public/posts" + toQuery({ lang, category, page, pageSize }), { withMeta: true });
+
+/** @returns {Promise<Post>} topilmasa ApiError 404 */
+export const getPost = (slug, lang) => api(`/api/public/posts/${slug}` + toQuery({ lang }));
+
+/** Admin ro'yxat query: page, pageSize, status, categoryId, q */
+export const postsAdminApi = adminResource("posts", { paginated: true });

@@ -1,6 +1,6 @@
 import styles from "./FaqAccordion.module.css";
 
-/** TODO: FAQ (useFaqItems) kategoriya bo'yicha, Accordion bilan */
+/** TODO: savollar ro'yxati: items ({ id, question, answer }) → Accordion; docs/tz/07-faq.md */
 export function FaqAccordion() {
   return <div className={styles.root} />;
 }

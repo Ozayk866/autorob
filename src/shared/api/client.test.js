@@ -1,8 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { server } from "../../../tests/mocks/server";
-import { API } from "../../../tests/mocks/handlers";
+import { server } from "../../../mocks/server";
+import { API } from "../../../mocks/handlers";
 import { api } from "./client";
-import { ApiError } from "./errors";
+import { ApiError, fieldErrors } from "./errors";
 
 describe("api client", () => {
   it("JSON body'ni stringify qiladi va Content-Type qo'yadi", async () => {
@@ -31,15 +31,46 @@ describe("api client", () => {
     expect(type).toMatch(/^multipart\/form-data; boundary=/);
   });
 
-  it("xatoda ApiError tashlaydi (status, code, details bilan)", async () => {
+  it("CSRF sarlavhasini faqat admin so'rovlariga qo'shadi", async () => {
+    const seen = {};
+    server.use(
+      http.post(`${API}/api/admin/x`, ({ request }) => {
+        seen.admin = request.headers.get("x-requested-with");
+        return HttpResponse.json({ data: null });
+      }),
+      http.get(`${API}/api/public/x`, ({ request }) => {
+        seen.public = request.headers.get("x-requested-with");
+        return HttpResponse.json({ data: null });
+      }),
+    );
+    await api("/api/admin/x", { method: "POST", body: {} });
+    await api("/api/public/x");
+    expect(seen).toEqual({ admin: "autorob-admin", public: null });
+  });
+
+  it("withMeta bilan sahifalash ma'lumotini qaytaradi", async () => {
+    server.use(
+      http.get(`${API}/list`, () =>
+        HttpResponse.json({ data: [1, 2], meta: { page: 1, pageSize: 2, total: 5 } }),
+      ),
+    );
+    await expect(api("/list", { withMeta: true })).resolves.toEqual({
+      data: [1, 2],
+      meta: { page: 1, pageSize: 2, total: 5 },
+    });
+  });
+
+  it("xatoda ApiError tashlaydi, maydon xatolarini beradi", async () => {
+    const details = [{ path: "title.uz", message: "Majburiy" }];
     server.use(
       http.post(`${API}/fail`, () =>
-        HttpResponse.json({ error: { code: "VALIDATION", details: { name: "x" } } }, { status: 422 }),
+        HttpResponse.json({ error: { code: "VALIDATION_ERROR", message: "x", details } }, { status: 400 }),
       ),
     );
     const error = await api("/fail", { method: "POST", body: {} }).catch((e) => e);
     expect(error).toBeInstanceOf(ApiError);
-    expect(error).toMatchObject({ status: 422, code: "VALIDATION", details: { name: "x" } });
+    expect(error).toMatchObject({ status: 400, code: "VALIDATION_ERROR" });
+    expect(fieldErrors(error)).toEqual(details);
   });
 
   it("admin 401 da auth:unauthorized hodisasini chiqaradi", async () => {

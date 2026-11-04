@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { useContacts } from "@/entities/settings";
-import { routes, SOLUTION_CATEGORIES } from "@/shared/config";
+import { useSolutions } from "@/entities/solution";
+import { routes } from "@/shared/config";
 import { useLocale, useT } from "@/shared/i18n";
 import { cn } from "@/shared/lib";
 import { Logo } from "@/shared/ui";
@@ -18,6 +19,8 @@ export function Footer() {
   const lang = useLocale();
   const t = useT();
   const contacts = useContacts();
+  // «Yechimlar» ustuni — admin paneldagi tartib bo'yicha birinchi 4 ta yechim
+  const { data: solutions = [] } = useSolutions(lang);
 
   return (
     <footer className={styles.root}>
@@ -30,9 +33,9 @@ export function Footer() {
         </div>
 
         <FooterColumn title={t("footer.solutions")}>
-          {SOLUTION_CATEGORIES.map((soha) => (
-            <Link key={soha} to={routes.solutions(lang, soha)} className={styles.link}>
-              {t(`solutionCategories.${soha}`)}
+          {solutions.slice(0, 4).map((solution) => (
+            <Link key={solution.id} to={routes.solution(solution.slug, lang)} className={styles.link}>
+              {solution.title}
             </Link>
           ))}
         </FooterColumn>

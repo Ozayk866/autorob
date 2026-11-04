@@ -1,14 +1,23 @@
 import { z } from "zod";
 import { localizedText } from "@/shared/i18n";
 
-// TODO: maydonlarni Figma va backend bilan solishtiring
+// Admin sozlamalar formasi — kontrakt §10 «Sozlamalar» (PUT, hamma maydon majburiy)
 export const settingsSchema = z.object({
-  phone: z.string().regex(/^998\d{9}$/, "lead.errors.phone"),
-  email: z.string().email().optional(),
+  phone: z.string().trim().max(50),
+  telegram: z.string().trim().max(100),
+  email: z.union([z.string().email(), z.literal("")]),
   address: localizedText(),
   workHours: localizedText(),
-  telegram: z.object({
-    botToken: z.string().optional(), // bo'sh qoldirilsa — eski token o'zgarmaydi
-    chatId: z.string().optional(),
-  }),
+  mapLat: z.number().min(-90).max(90).nullable(),
+  mapLng: z.number().min(-180).max(180).nullable(),
+  socials: z.record(
+    z.string().regex(/^[a-z0-9_]{1,30}$/),
+    z
+      .string()
+      .regex(/^https?:\/\//)
+      .max(300),
+  ),
+  gaId: z.string().max(50).nullable(),
+  metrikaId: z.string().max(50).nullable(),
+  metaPixelId: z.string().max(50).nullable(),
 });

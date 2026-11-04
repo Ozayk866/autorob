@@ -32,10 +32,9 @@
     "workHours": "Пн–Сб: 09:00–18:00"
   },
   "solutionCategories": {
-    "crm": "CRM",
-    "erp": "ERP",
-    "robotlar": "Роботы",
-    "stanoklar": "Станочные линии"
+    "service": "Сервис",
+    "education": "Образование",
+    "manufacturing": "Производство"
   },
   "footer": {
     "tagline": "Автоматизация, роботизация и smart-решения.",

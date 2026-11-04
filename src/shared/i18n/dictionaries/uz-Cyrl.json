@@ -32,10 +32,9 @@
     "workHours": "Ду–Ша: 09:00–18:00"
   },
   "solutionCategories": {
-    "crm": "CRM",
-    "erp": "ERP",
-    "robotlar": "Роботлар",
-    "stanoklar": "Станок линиялари"
+    "service": "Сервис",
+    "education": "Таълим",
+    "manufacturing": "Ишлаб чиқариш"
   },
   "footer": {
     "tagline": "Автоматлаштириш, роботлаштириш ва смарт ечимлар.",

@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "dev:mock": "vite --mode mock"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -44,5 +45,10 @@
     "prettier": "^3.5.3",
     "vite": "^6.3.5",
     "vitest": "^3.2.3"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

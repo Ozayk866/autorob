@@ -1,12 +1,18 @@
 import { api } from "@/shared/api";
 import { toQuery } from "@/shared/lib";
 
-// TODO: endpoint'larni backend kontraktiga qarab moslang
+// Sozlamalar — kontrakt §8 `GET /api/public/settings`, §10 «Sozlamalar»
 
-/** Public: telefon, email, manzil, ijtimoiy tarmoqlar, ish vaqti */
+/**
+ * @typedef {{ phone: string, telegram: string, email: string, address: string, workHours: string,
+ *   map: { lat: number, lng: number } | null, socials: Record<string, string>,
+ *   analytics: { gaId: string | null, metrikaId: string | null, metaPixelId: string | null } }} PublicSettings
+ * phone — "+998 90 123 45 67", telegram — "@autorob_uz", socials — { instagram: "https://..." }
+ */
+
+/** @returns {Promise<PublicSettings>} */
 export const getSettings = (lang) => api("/api/public/settings" + toQuery({ lang }));
-/** Admin: + Telegram bot sozlamalari (token javobda yashirilgan bo'ladi) */
+
 export const getSettingsAdmin = () => api("/api/admin/settings");
-export const updateSettings = (body) => api("/api/admin/settings", { method: "PATCH", body });
-export const getTelegramStatus = () => api("/api/admin/settings/telegram/status");
-export const sendTelegramTest = () => api("/api/admin/settings/telegram/test", { method: "POST" });
+/** PUT — barcha maydonlar majburiy (to'liq almashtirish) */
+export const updateSettings = (body) => api("/api/admin/settings", { method: "PUT", body });

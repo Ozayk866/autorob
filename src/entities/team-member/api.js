@@ -1,14 +1,24 @@
-import { api } from "@/shared/api";
+import { useQuery } from "@tanstack/react-query";
+import { z } from "zod";
+import { adminResource, api, createAdminHooks } from "@/shared/api";
+import { localizedText } from "@/shared/i18n";
 import { toQuery } from "@/shared/lib";
 
-// TODO: endpoint'larni backend kontraktiga qarab moslang
-// Public javob: tarjima maydonlari oddiy string (?lang=). Admin javob: { uz, "uz-Cyrl", ru }.
+// Jamoa — kontrakt §8 `GET /api/public/team`, §10 «Jamoa»
 
-export const getTeamMembers = (lang, filters) => api("/api/public/team" + toQuery({ lang, ...filters }));
+/** @typedef {{ id: string, name: string, role: string, photo: import("@/shared/api/types").Image | null }} TeamMember */
 
-export const getTeamMembersAdmin = () => api("/api/admin/team");
-export const getTeamMemberAdmin = (id) => api(`/api/admin/team/${id}`);
-export const createTeamMember = (body) => api("/api/admin/team", { method: "POST", body });
-export const updateTeamMember = (id, body) => api(`/api/admin/team/${id}`, { method: "PATCH", body });
-export const deleteTeamMember = (id) => api(`/api/admin/team/${id}`, { method: "DELETE" });
-export const reorderTeamMembers = (ids) => api("/api/admin/team/reorder", { method: "PATCH", body: { ids } });
+/** @returns {Promise<TeamMember[]>} */
+export const getTeam = (lang) => api("/api/public/team" + toQuery({ lang }));
+
+export const teamKeys = { all: ["team"], list: (lang) => ["team", "list", lang] };
+export const useTeam = (lang) => useQuery({ queryKey: teamKeys.list(lang), queryFn: () => getTeam(lang) });
+
+export const teamAdmin = createAdminHooks(adminResource("team"), teamKeys.all);
+
+export const teamMemberSchema = z.object({
+  name: localizedText(true),
+  role: localizedText(true),
+  photoId: z.string().uuid().nullable().optional(),
+  isActive: z.boolean(),
+});

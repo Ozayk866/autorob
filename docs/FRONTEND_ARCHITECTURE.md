@@ -1,4 +1,6 @@
-# AUTOROB — Frontend arxitekturasi (bitta React ilova: sayt + admin, JavaScript)
+# AUTOROB — Frontend arxitekturasi
+
+> Backend API kontrakti: [docs/api/API_CONTRACT.md](api/API_CONTRACT.md). Mock rejim: `npm run dev:mock` (mocks/). (bitta React ilova: sayt + admin, JavaScript)
 
 > Bu hujjat loyihaning `docs/FRONTEND_ARCHITECTURE.md` faylida turadi. Papka va fayllar shu hujjat bo'yicha yaratilgan. **Til — JavaScript (`.js` / `.jsx`), TypeScript ishlatilmaydi.**
 
@@ -34,12 +36,12 @@ Bitta React ilova, ichida ikki qism bor:
 
 **Stackda yo'q narsalar va ularning o'rnini nima bosadi:**
 
-| Kerak bo'lgan narsa                 | Yechim (qo'shimcha kutubxonasiz)                                                                                                            |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| title, meta, hreflang               | React 19 o'zi `<title>`, `<meta>`, `<link>` ni `<head>` ga ko'taradi (SSR'da ham) → `shared/seo/Seo.jsx`                                    |
-| Toast xabarlar                      | `shared/ui/Toast` (kichik context + komponent)                                                                                              |
-| Matn muharriri (blog)               | `shared/form/RichTextEditor.jsx` — Markdown `textarea` + toolbar; saytda `shared/lib/markdown.js` bilan render (avval HTML escape qilinadi) |
-| Kichik global UI holati (LeadModal) | React context: `features/lead-form/LeadModalProvider.jsx`                                                                                   |
+| Kerak bo'lgan narsa                 | Yechim (qo'shimcha kutubxonasiz)                                                                                                                                                 |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title, meta, hreflang               | React 19 o'zi `<title>`, `<meta>`, `<link>` ni `<head>` ga ko'taradi (SSR'da ham) → `shared/seo/Seo.jsx`                                                                         |
+| Toast xabarlar                      | `shared/ui/Toast` (kichik context + komponent)                                                                                                                                   |
+| Matn muharriri (blog, yechim)       | `shared/form/RichTextEditor.jsx` — backend `body` ni **HTML** saqlaydi va tozalaydi; saytda `dangerouslySetInnerHTML` + `.prose` stillari. Muharrir kutubxonasi hali tanlanmagan |
+| Kichik global UI holati (LeadModal) | React context: `features/lead-form/LeadModalProvider.jsx`                                                                                                                        |
 
 **JavaScript'da tartibni saqlash uchun:**
 
@@ -228,12 +230,12 @@ autorob/
 │       ├── form/                 # admin formalar uchun
 │       │   ├── FormField.jsx
 │       │   ├── LocalizedField.jsx  # O'zbekcha / Ўзбекча / Русский tablari
-│       │   ├── RichTextEditor.jsx  # Markdown textarea + toolbar
+│       │   ├── RichTextEditor.jsx  # HTML muharrir (backend tozalaydi)
 │       │   ├── ImageUpload.jsx
 │       │   ├── SeoFields.jsx, GooglePreview.jsx
 │       │   └── CharCounter.jsx
 │       ├── hooks/                useDebounce.js, useHotkey.js, useUnsavedChanges.js, useMediaQuery.js
-│       ├── lib/                  cn.js, format.js, phone.js (+998 niqob), slugify.js, markdown.js, analytics.js, query.js
+│       ├── lib/                  cn.js, format.js, phone.js (+998 niqob), slugify.js, analytics.js, query.js, utm.js
 │       └── config/               env.js (VITE_* tekshiruvi), routes.js (yo'l konstantalari: routes.solution(slug, lang))
 │
 └── tests/
