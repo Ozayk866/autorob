@@ -4,6 +4,8 @@
 **Dizayn:** «AUTOROB_05_Blog» (1440×2927)  
 **Qiyinlik:** ⭐⭐⭐
 
+> ✅ `PostCard` va `CoverArt` (rasm o'rnidagi gradient + ikonka) **tayyor** — bosh sahifa uchun yozilgan. Blog sahifasida `<PostCard post={post} />` (ikonka bilan) ishlatasiz, qayta yozmaysiz.
+
 ## Maqsad
 
 Mijoz foydali maqolalarni ko'radi, kategoriya bo'yicha filtrlaydi, qidiradi va ochadi. Blog — SEO orqali yangi mijoz olib keladi.

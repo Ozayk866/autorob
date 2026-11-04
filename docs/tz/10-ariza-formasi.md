@@ -4,6 +4,12 @@
 **Dizayn:** «AUTOROB_10_Ariza_modali_holatlar» (4 holat) + bosh sahifadagi «Ariza formasi» bloki  
 **Qiyinlik:** ⭐⭐⭐ (saytning **eng muhim** funksiyasi — ariza Telegram guruhga boradi)
 
+> ✅ **Bajarildi (o'qituvchi).** Bu sahifa/qism to'liq yozilgan — boshqa sahifalar uchun **namuna** sifatida o'rganing:
+> qanday bo'limlarga bo'lingan, statik matn lug'atda qanday saqlangan, holatlar (loading / xato) qanday qilingan.
+> Quyidagi TZ — nima qilinganining tavsifi. Topilgan xatolarni o'qituvchiga ayting, o'zingiz o'zgartirmang.
+>
+> Boshqa sahifalarda ishlatish: `useLeadModal().open(solutionId?)`, `<CtaBand />`, Kontaktlar — `<LeadForm variant="contacts" title=… subtitle=… />`.
+
 ## Maqsad
 
 Mijoz ism va telefonini qoldiradi → backend arizani AUTOROB'ning Telegram guruhiga yuboradi → menejer qo'ng'iroq qiladi. Forma tez, tushunarli va xatosiz ishlashi kerak.

@@ -4,6 +4,10 @@
 **Dizayn:** «Bosh sahifa — Desktop 1440» (1440×5149) + «HeroSlider» (4 ta slayd)  
 **Qiyinlik:** ⭐⭐⭐ (eng katta sahifa)
 
+> ✅ **Bajarildi (o'qituvchi).** Bu sahifa/qism to'liq yozilgan — boshqa sahifalar uchun **namuna** sifatida o'rganing:
+> qanday bo'limlarga bo'lingan, statik matn lug'atda qanday saqlangan, holatlar (loading / xato) qanday qilingan.
+> Quyidagi TZ — nima qilinganining tavsifi. Topilgan xatolarni o'qituvchiga ayting, o'zingiz o'zgartirmang.
+
 ## Maqsad
 
 Mijoz 10 soniyada tushunishi kerak: AUTOROB nima qiladi (CRM → ERP → Robot → Stanok), kimlar uchun, nega aynan AUTOROB — va **ariza qoldirishi** kerak.

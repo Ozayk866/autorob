@@ -1,34 +1,20 @@
 import { cn } from "@/shared/lib/cn";
-import chevronDown from "./icons/chevron-down.svg?raw";
-import clock from "./icons/clock.svg?raw";
-import close from "./icons/close.svg?raw";
-import globe from "./icons/globe.svg?raw";
-import logoMark from "./icons/logo-mark.svg?raw";
-import mapPin from "./icons/map-pin.svg?raw";
-import menu from "./icons/menu.svg?raw";
-import phone from "./icons/phone.svg?raw";
-import send from "./icons/send.svg?raw";
 import styles from "./Icon.module.css";
 
-// Yangi ikonka: icons/ ga SVG qo'shing (stroke="currentColor", width/height'siz) va shu yerga yozing
-const ICONS = {
-  "chevron-down": chevronDown,
-  clock,
-  close,
-  globe,
-  "logo-mark": logoMark,
-  "map-pin": mapPin,
-  menu,
-  phone,
-  send,
-};
+// icons/ papkasidagi barcha SVG'lar avtomatik ulanadi: icons/arrow-right.svg → <Icon name="arrow-right" />.
+// Yangi ikonka: SVG'ni qo'shing (viewBox="0 0 24 24", stroke="currentColor", width/height'siz).
+const files = import.meta.glob("./icons/*.svg", { query: "?raw", import: "default", eager: true });
+const ICONS = Object.fromEntries(
+  Object.entries(files).map(([path, svg]) => [path.slice("./icons/".length, -".svg".length), svg]),
+);
 
 /**
  * Rangi `color` dan olinadi (currentColor).
- * @param {{ name: keyof typeof ICONS, size?: number, label?: string, className?: string }} props
+ * @param {{ name: string, size?: number, label?: string, className?: string }} props
  * label bo'lmasa — dekorativ (aria-hidden)
  */
 export function Icon({ name, size = 20, label, className }) {
+  if (import.meta.env.DEV && !ICONS[name]) console.warn(`[Icon] "${name}" topilmadi (shared/ui/Icon/icons/)`);
   return (
     <span
       className={cn(styles.root, className)}

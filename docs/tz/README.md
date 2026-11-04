@@ -2,20 +2,20 @@
 
 Har bir o'quvchi bitta sahifani oladi. Avval shu faylni, keyin o'z TZ faylini oxirigacha o'qing.
 
-| №   | Fayl                                                 | Sahifa                            | URL                | Dizayn (Figma frame)                       |
-| --- | ---------------------------------------------------- | --------------------------------- | ------------------ | ------------------------------------------ |
-| 01  | [01-bosh-sahifa.md](01-bosh-sahifa.md)               | Bosh sahifa                       | `/`                | «Bosh sahifa — Desktop 1440», «HeroSlider» |
-| 02  | [02-yechimlar-katalogi.md](02-yechimlar-katalogi.md) | Yechimlar katalogi                | `/yechimlar`       | AUTOROB_02_Yechimlar_katalogi              |
-| 03  | [03-yechim-sahifasi.md](03-yechim-sahifasi.md)       | Bitta yechim                      | `/yechimlar/:slug` | AUTOROB_03_Yechim_sahifasi_CRM             |
-| —   | —                                                    | Biz haqimizda                     | `/biz-haqimizda`   | AUTOROB_04 — **o'qituvchi qiladi**         |
-| 05  | [05-blog.md](05-blog.md)                             | Blog ro'yxati                     | `/blog`            | AUTOROB_05_Blog                            |
-| 06  | [06-maqola.md](06-maqola.md)                         | Maqola                            | `/blog/:slug`      | AUTOROB_06_Maqola                          |
-| 07  | [07-faq.md](07-faq.md)                               | FAQ                               | `/faq`             | AUTOROB_07_FAQ                             |
-| 08  | [08-kontaktlar.md](08-kontaktlar.md)                 | Kontaktlar                        | `/kontaktlar`      | AUTOROB_08_Kontaktlar                      |
-| 09  | [09-404-va-maxfiylik.md](09-404-va-maxfiylik.md)     | 404 + Maxfiylik siyosati          | `*`, `/maxfiylik`  | AUTOROB_09_404                             |
-| 10  | [10-ariza-formasi.md](10-ariza-formasi.md)           | Ariza formasi, modal va CTA bloki | (hamma sahifada)   | AUTOROB_10_Ariza_modali_holatlar           |
+| №     | Fayl                                                 | Sahifa                            | URL                | Dizayn (Figma frame)                       |
+| ----- | ---------------------------------------------------- | --------------------------------- | ------------------ | ------------------------------------------ |
+| 01 ✅ | [01-bosh-sahifa.md](01-bosh-sahifa.md)               | Bosh sahifa                       | `/`                | «Bosh sahifa — Desktop 1440», «HeroSlider» |
+| 02    | [02-yechimlar-katalogi.md](02-yechimlar-katalogi.md) | Yechimlar katalogi                | `/yechimlar`       | AUTOROB_02_Yechimlar_katalogi              |
+| 03    | [03-yechim-sahifasi.md](03-yechim-sahifasi.md)       | Bitta yechim                      | `/yechimlar/:slug` | AUTOROB_03_Yechim_sahifasi_CRM             |
+| —     | —                                                    | Biz haqimizda                     | `/biz-haqimizda`   | AUTOROB_04 — **o'qituvchi qiladi**         |
+| 05    | [05-blog.md](05-blog.md)                             | Blog ro'yxati                     | `/blog`            | AUTOROB_05_Blog                            |
+| 06    | [06-maqola.md](06-maqola.md)                         | Maqola                            | `/blog/:slug`      | AUTOROB_06_Maqola                          |
+| 07    | [07-faq.md](07-faq.md)                               | FAQ                               | `/faq`             | AUTOROB_07_FAQ                             |
+| 08    | [08-kontaktlar.md](08-kontaktlar.md)                 | Kontaktlar                        | `/kontaktlar`      | AUTOROB_08_Kontaktlar                      |
+| 09    | [09-404-va-maxfiylik.md](09-404-va-maxfiylik.md)     | 404 + Maxfiylik siyosati          | `*`, `/maxfiylik`  | AUTOROB_09_404                             |
+| 10 ✅ | [10-ariza-formasi.md](10-ariza-formasi.md)           | Ariza formasi, modal va CTA bloki | (hamma sahifada)   | AUTOROB_10_Ariza_modali_holatlar           |
 
-Header, Footer, TopBar, til tanlagich **tayyor** — ularga tegmang.
+Header, Footer, TopBar, til tanlagich, **bosh sahifa (01)** va **ariza formasi / modal / CtaBand (10)** tayyor — ularga tegmang, namuna sifatida o'rganing. ✅ belgisi — bajarilgan.
 
 ## 1. Ishni boshlash
 
@@ -80,6 +80,7 @@ Har kim **o'z bo'limi kalitini** ishlatadi (`"home": {...}`, `"catalog": {...}`,
 
 ## 4. Mock ma'lumot (backend'siz ishlash)
 
+- Brauzeringizda Service Worker ishlamasa (mock ma'lumot chiqmasa): ikkita terminalda `npm run mock:api` (mock'lar oddiy server sifatida, http://localhost:4000) va `npm run dev`.
 - `npm run dev:mock` — so'rovlarni brauzer ichida **MSW** ushlaydi va `mocks/data.js` dagi ma'lumotni backend shaklida qaytaradi (`mocks/handlers.js`). Chrome yoki Edge'da ishlating.
 - Ma'lumot dizayndagi matnlardan olingan: 6 ta yechim, 15 ta maqola, 5 ta FAQ bo'limi, 4 ta raqam, kontaktlar…
 - Holatlarni sinash: ariza formasida ism **`429`** → «juda ko'p urinish» xatosi; mavjud bo'lmagan slug → 404; har so'rov ~0.4 soniya kechikadi (Skeleton ko'rinishi uchun).
@@ -100,20 +101,22 @@ Har kim **o'z bo'limi kalitini** ishlatadi (`"home": {...}`, `"catalog": {...}`,
 
 Bir xil faylni ikki kishi o'zgartirsa, PR'lar to'qnashadi. **Boshqaning komponenti hali tayyor bo'lmasa — import qilib ishlataverasiz** (shablon bor), tayyor bo'lgach o'zi ko'rinadi.
 
-| Komponent                                                                                | Fayl                                            | Egasi | Kim ishlatadi          |
-| ---------------------------------------------------------------------------------------- | ----------------------------------------------- | ----- | ---------------------- |
-| `SectionHeading` — eyebrow + sarlavha + matn                                             | `shared/ui/SectionHeading/` (yangi)             | 01    | hamma                  |
-| `Card`                                                                                   | `shared/ui/Card/`                               | 01    | hamma                  |
-| `PageHero` — ichki sahifa boshi (qorong'i, breadcrumbs, sarlavha, o'ngda ikonka doirasi) | `widgets/site/page-hero/` (yangi)               | 02    | 02, 05, 07, 08         |
-| `Breadcrumbs`                                                                            | `shared/ui/Breadcrumbs/` (yangi)                | 02    | 02, 03, 05, 06, 07, 08 |
-| `Chip`, `Badge`, `Skeleton`, `EmptyState`                                                | `shared/ui/...`                                 | 02    | hamma                  |
-| `SolutionCard`                                                                           | `entities/solution/ui/`                         | 02    | 01, 02, 03             |
-| `PostCard`                                                                               | `entities/post/ui/`                             | 05    | 01, 05, 06             |
-| `Pagination`                                                                             | `shared/ui/Table/Pagination.jsx`                | 05    | 05, admin              |
-| `Prose` — HTML matn stillari                                                             | `shared/ui/Prose/` (yangi)                      | 06    | 03, 06, 09             |
-| `Accordion`                                                                              | `shared/ui/Accordion/`                          | 07    | 03, 07                 |
-| `Input`, `Textarea`, `Select`, `Modal`, `FormField`                                      | `shared/ui/...`, `shared/form/`                 | 10    | hamma                  |
-| `LeadForm`, `LeadModal`, `CtaBand` (sahifa oxiridagi ariza bloki)                        | `features/lead-form/`, `widgets/site/cta-band/` | 10    | hamma                  |
+| Komponent                                                                                | Fayl                                            | Egasi        | Kim ishlatadi          |
+| ---------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------ | ---------------------- |
+| `SectionHeading` — eyebrow + sarlavha + matn                                             | `shared/ui/SectionHeading/` (yangi)             | 01 ✅ tayyor | hamma                  |
+| `CoverArt` — rasm yo'q bo'lsa gradient + ikonka                                          | `shared/ui/CoverArt/`                           | 01 ✅ tayyor | 01, 02, 03, 05, 06     |
+| `Button` — `variant`: primary / secondary / light / outline, `iconRight`, `to` (havola)  | `shared/ui/Button/`                             | ✅ tayyor    | hamma                  |
+| `Card`                                                                                   | `shared/ui/Card/`                               | 01           | hamma                  |
+| `PageHero` — ichki sahifa boshi (qorong'i, breadcrumbs, sarlavha, o'ngda ikonka doirasi) | `widgets/site/page-hero/` (yangi)               | 02           | 02, 05, 07, 08         |
+| `Breadcrumbs`                                                                            | `shared/ui/Breadcrumbs/` (yangi)                | 02           | 02, 03, 05, 06, 07, 08 |
+| `Chip`, `Badge`, `Skeleton`, `EmptyState`                                                | `shared/ui/...`                                 | 02           | hamma                  |
+| `SolutionCard`                                                                           | `entities/solution/ui/`                         | 02           | 01, 02, 03             |
+| `PostCard`                                                                               | `entities/post/ui/`                             | 05 ✅ tayyor | 01, 05, 06             |
+| `Pagination`                                                                             | `shared/ui/Table/Pagination.jsx`                | 05           | 05, admin              |
+| `Prose` — HTML matn stillari                                                             | `shared/ui/Prose/` (yangi)                      | 06           | 03, 06, 09             |
+| `Accordion`                                                                              | `shared/ui/Accordion/`                          | 07           | 03, 07                 |
+| `Input`, `Textarea`, `Select`, `Modal`, `FormField`                                      | `shared/ui/...`, `shared/form/`                 | 10 ✅ tayyor | hamma                  |
+| `LeadForm`, `LeadModal`, `CtaBand` (sahifa oxiridagi ariza bloki)                        | `features/lead-form/`, `widgets/site/cta-band/` | 10 ✅ tayyor | hamma                  |
 
 ## 7. Baholash
 

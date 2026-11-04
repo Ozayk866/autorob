@@ -31,7 +31,7 @@ export default [
   { ignores: ["dist", "dist-ssr", "node_modules", "coverage", "public/mockServiceWorker.js"] },
   js.configs.recommended,
   {
-    files: ["**/*.{js,jsx}"],
+    files: ["**/*.{js,jsx,mjs}"],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: "module",

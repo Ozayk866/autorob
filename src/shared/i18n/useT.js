@@ -8,10 +8,16 @@ const DICTIONARIES = { uz, "uz-Cyrl": uzCyrl, ru };
 const get = (obj, key) => key.split(".").reduce((o, k) => o?.[k], obj);
 const lookup = (lang, key) => get(DICTIONARIES[lang], key) ?? get(DICTIONARIES.uz, key);
 
-/** UI matnlari: t("lead.submit"). Topilmasa — uz, keyin kalitning o'zi. */
+const fill = (text, vars) =>
+  vars ? text.replace(/\{(\w+)\}/g, (match, name) => (name in vars ? vars[name] : match)) : text;
+
+/**
+ * UI matnlari: t("lead.submit"). Topilmasa — uz, keyin kalitning o'zi.
+ * O'zgaruvchilar: t("lead.success.title", { name: "Aziz" }) → "Rahmat, Aziz!" (lug'atda "Rahmat, {name}!")
+ */
 export function useT() {
   const lang = useLocale();
-  return useCallback((key) => lookup(lang, key) ?? key, [lang]);
+  return useCallback((key, vars) => fill(lookup(lang, key) ?? key, vars), [lang]);
 }
 
 /**

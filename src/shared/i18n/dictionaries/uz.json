@@ -3,7 +3,9 @@
     "loading": "Yuklanmoqda…",
     "save": "Saqlash",
     "cancel": "Bekor qilish",
-    "back": "Orqaga"
+    "back": "Orqaga",
+    "close": "Yopish",
+    "more": "Batafsil"
   },
   "nav": {
     "solutions": "Yechimlar",
@@ -29,14 +31,33 @@
   "lead": {
     "cta": "Ma'lumot qoldirish",
     "name": "Ismingiz",
-    "phone": "Telefon",
+    "phone": "Telefon raqamingiz",
     "submit": "Yuborish",
-    "success": "Rahmat! Tez orada bog'lanamiz",
+    "success": {
+      "title": "Rahmat, {name}!",
+      "text": "Arizangiz qabul qilindi. Mutaxassisimiz 1 ish kuni ichida {phone} raqamiga qo'ng'iroq qiladi.",
+      "again": "Yana ariza yuborish"
+    },
     "errors": {
       "name": "Ismingizni kiriting",
       "phone": "Telefon raqamini to'liq kiriting",
       "tooMany": "Juda ko'p urinish, birozdan keyin qayta yuboring",
       "failed": "Yuborilmadi. Qayta urinib ko'ring yoki qo'ng'iroq qiling:"
+    },
+    "title": "Ma'lumot qoldirish",
+    "subtitle": "Ism va telefon raqamingizni qoldiring — tez orada bog'lanamiz.",
+    "namePlaceholder": "Masalan, Aziz",
+    "phonePlaceholder": "+998 __ ___ __ __",
+    "solution": "Qiziqtirgan yechim",
+    "solutionPlaceholder": "Tanlang",
+    "solutionPlaceholderLong": "CRM, ERP, robot yoki stanok liniyasi",
+    "message": "Izoh (ixtiyoriy)",
+    "messagePlaceholder": "Qaysi yechim qiziqtiradi?",
+    "submitting": "Yuborilmoqda…",
+    "consent": {
+      "before": "Tugmani bosib,",
+      "link": "shaxsiy ma'lumotlarni qayta ishlashga",
+      "after": "rozilik bildirasiz."
     }
   },
   "form": {
@@ -67,6 +88,154 @@
     "contact": "Aloqa",
     "rights": "Barcha huquqlar himoyalangan.",
     "privacy": "Maxfiylik siyosati"
+  },
+  "cta": {
+    "eyebrow": "Bepul konsultatsiya",
+    "title": "Qaysi bosqichdan boshlashni birga aniqlaymiz",
+    "lead": "Ism va telefon raqamingizni qoldiring — mutaxassisimiz 1 ish kuni ichida bog'lanadi."
+  },
+  "home": {
+    "seo": {
+      "title": "Avtomatlashtirish, robotlashtirish va smart yechimlar",
+      "description": "CRM, ERP, sanoat robotlari va stanok liniyalari — biznesingizni bosqichma-bosqich avtomatlashtiramiz. Bepul konsultatsiya."
+    },
+    "hero": {
+      "label": "Asosiy yechimlar",
+      "prev": "Oldingi slayd",
+      "next": "Keyingi slayd",
+      "status": "{current}-slayd, jami {total}: {title}",
+      "slides": [
+        {
+          "tab": "CRM",
+          "title": "Har bir mijoz — nazoratda",
+          "accent": "nazoratda",
+          "text": "CRM bilan arizalar, sotuv va mijozlar bilan ishlash bitta oynada. Hech bir qo'ng'iroq yo'qolmaydi.",
+          "secondary": {
+            "label": "CRM haqida",
+            "href": "/yechimlar/crm-tizimi"
+          }
+        },
+        {
+          "tab": "ERP",
+          "title": "Butun biznes — bitta tizimda",
+          "accent": "bitta tizimda",
+          "text": "Ombor, xarid, moliya va ishlab chiqarish ERP orqali yagona hisobga bog'lanadi.",
+          "secondary": {
+            "label": "ERP haqida",
+            "href": "/yechimlar/erp-tizimi"
+          }
+        },
+        {
+          "tab": "Robot",
+          "title": "Og'ir ishni robotlarga topshiring",
+          "accent": "robotlarga",
+          "text": "Sanoat robotlari takroriy operatsiyalarni tez, aniq va tanaffussiz bajaradi.",
+          "secondary": {
+            "label": "Robotlar haqida",
+            "href": "/yechimlar/sanoat-robotlari"
+          }
+        },
+        {
+          "tab": "Stanok liniyasi",
+          "title": "To'liq avtomatlashgan ishlab chiqarish",
+          "accent": "avtomatlashgan",
+          "text": "Stanok liniyalarini loyihalaymiz, o'rnatamiz va ishga tushiramiz — kalit taslim.",
+          "secondary": {
+            "label": "Liniyalar haqida",
+            "href": "/yechimlar/stanok-liniyalari"
+          }
+        }
+      ]
+    },
+    "stats": {
+      "label": "Raqamlarda AUTOROB"
+    },
+    "path": {
+      "eyebrow": "Avtomatlashtirish yo'li",
+      "title": "To'rt bosqich — bitta hamkor",
+      "subtitle": "Kichik qadamdan boshlang: avval mijozlar bilan ishlashni tartiblaymiz, so'ng butun ishlab chiqarishni avtomatlashtiramiz.",
+      "steps": [
+        {
+          "icon": "users",
+          "title": "CRM",
+          "text": "Mijozlar, sotuv va arizalarni bitta tizimda boshqarish. Hech bir mijoz yo'qolmaydi.",
+          "href": "/yechimlar/crm-tizimi"
+        },
+        {
+          "icon": "layers",
+          "title": "ERP",
+          "text": "Ombor, xarid, moliya va ishlab chiqarishni yagona tizimga bog'lash.",
+          "href": "/yechimlar/erp-tizimi"
+        },
+        {
+          "icon": "bot",
+          "title": "Robot",
+          "text": "Takroriy va og'ir operatsiyalarni sanoat robotlari bajaradi.",
+          "href": "/yechimlar/sanoat-robotlari"
+        },
+        {
+          "icon": "factory",
+          "title": "Stanok liniyasi",
+          "text": "To'liq avtomatlashtirilgan ishlab chiqarish liniyasini loyihalash va o'rnatish.",
+          "href": "/yechimlar/stanok-liniyalari"
+        }
+      ]
+    },
+    "audience": {
+      "eyebrow": "Kimlar uchun",
+      "title": "Har bir soha uchun o'z yechimi",
+      "cards": [
+        {
+          "category": "service",
+          "icon": "wrench",
+          "title": "Servis kompaniyalari",
+          "text": "Arizalar, buyurtmalar va xizmat ko'rsatish jarayonini CRM bilan nazorat qiling."
+        },
+        {
+          "category": "education",
+          "icon": "graduation-cap",
+          "title": "Ta'lim muassasalari",
+          "text": "O'quvchilar, to'lovlar va dars jadvallarini avtomatlashtiring."
+        },
+        {
+          "category": "manufacturing",
+          "icon": "factory",
+          "title": "Ishlab chiqarish",
+          "text": "Stanok liniyalari va robotlar bilan ishlab chiqarishni tezlashtiring, xatolarni kamaytiring."
+        }
+      ]
+    },
+    "advantages": {
+      "eyebrow": "Nega AUTOROB",
+      "title": "Boshidan oxirigacha — bitta jamoa",
+      "lead": "Tahlil, loyihalash, uskunalarni yetkazib berish, o'rnatish va xodimlarni o'qitish — barchasi bitta shartnoma bilan.",
+      "items": [
+        {
+          "title": "Kalit taslim yechim",
+          "text": "Tahlildan ishga tushirishgacha — bitta jamoa javob beradi."
+        },
+        {
+          "title": "Bosqichma-bosqich joriy etish",
+          "text": "Ishni to'xtatmasdan, kichik qadamlar bilan avtomatlashtiramiz."
+        },
+        {
+          "title": "Xodimlarni o'qitish",
+          "text": "Tizim bilan ishlashni jamoangizga amalda o'rgatamiz."
+        },
+        {
+          "title": "Kafolat va servis",
+          "text": "O'rnatilgandan keyin ham texnik yordam va xizmat ko'rsatamiz."
+        }
+      ]
+    },
+    "partners": {
+      "title": "Bizga ishonch bildirgan kompaniyalar"
+    },
+    "blog": {
+      "eyebrow": "Blog",
+      "title": "Avtomatlashtirish haqida foydali maqolalar",
+      "all": "Barcha maqolalar"
+    }
   },
   "notFound": {
     "title": "Sahifa topilmadi",

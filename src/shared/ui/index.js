@@ -19,3 +19,5 @@ export { ToastProvider, useToast } from "./Toast";
 export { DataTable, Pagination } from "./Table";
 export { Icon } from "./Icon";
 export { Logo } from "./Logo";
+export { SectionHeading } from "./SectionHeading";
+export { CoverArt } from "./CoverArt";
