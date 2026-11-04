@@ -3,9 +3,13 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: var(--space-3) var(--space-6);
+  padding-inline: var(--space-6);
   border: 1px solid transparent;
   border-radius: var(--radius-md);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--leading-sm);
+  white-space: nowrap;
   cursor: pointer;
   transition:
     background var(--transition),
@@ -15,6 +19,15 @@
 .root:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.md {
+  height: 44px;
+}
+
+.lg {
+  height: 50px;
+  padding-inline: var(--space-8);
 }
 
 .primary {

@@ -1,56 +1,85 @@
-/* Dizayn tokenlari — Figma UI Kit bilan 1:1. Komponentlarda faqat shu o'zgaruvchilar ishlatiladi.
-   TODO: qiymatlarni Figma'dagi aniq ranglar bilan almashtirish. */
+/* Dizayn tokenlari — Figma ("AUTOROB — Sayt dizayni") o'zgaruvchilari bilan 1:1.
+   Komponentlarda faqat shu o'zgaruvchilar ishlatiladi. Figma nomi izohda: ink/900 → --ink-900. */
 :root {
-  /* Ranglar */
+  /* Ranglar — asosiy */
   --white: #ffffff;
-  --ink-900: #111827;
+  --ink-900: #0b1220; /* ink/900 — header, footer, qorong'i fon */
+  --ink-800: #121a2c;
   --ink-700: #374151;
   --ink-500: #6b7280;
   --ink-300: #d1d5db;
   --ink-100: #f3f4f6;
-  --accent-600: #ea580c;
-  --accent-500: #f97316;
-  --accent-100: #ffedd5;
+
+  /* Brend (ko'k) — tugmalar, logotip, havolalar */
+  --accent-600: #1f58e6;
+  --accent-500: #2f6bff;
+  --accent-100: #e8efff;
+
+  /* Qorong'i fon ustida */
+  --text-on-dark: #ffffff; /* text/on-dark */
+  --text-on-dark-muted: #a9b4c8; /* text/on-dark-muted */
+  --border-dark: #24304a; /* border/dark */
+
+  /* Holatlar */
   --success-500: #22c55e;
   --danger-500: #ef4444;
   --warning-500: #f59e0b;
 
-  /* Matn */
+  /* Shriftlar */
   --font-display: "Unbounded", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-md: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.5rem;
-  --text-2xl: 2rem;
-  --text-3xl: 3rem;
+
+  /* Matn o'lchamlari (Figma text styles) */
+  --text-xs: 0.75rem; /* 12 */
+  --text-sm: 0.875rem; /* 14 — Body/S */
+  --text-label: 0.9375rem; /* 15 — Label/M */
+  --text-md: 1rem; /* 16 */
+  --text-lg: 1.125rem; /* 18 */
+  --text-xl: 1.5rem; /* 24 */
+  --text-2xl: 2rem; /* 32 */
+  --text-3xl: 3rem; /* 48 */
+  --leading-sm: 1.25rem; /* 20 — Body/S, Label/M */
+  --tracking-logo: 0.04em; /* logotip: 18px da 0.72px */
 
   /* Oraliqlar */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
+  --space-5: 1.25rem;
   --space-6: 1.5rem;
+  --space-7: 1.75rem;
   --space-8: 2rem;
+  --space-9: 2.25rem;
+  --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
+  --space-18: 4.5rem;
 
   /* Shakl */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-full: 999px;
-  --shadow-sm: 0 1px 2px rgb(17 24 39 / 0.06);
-  --shadow-lg: 0 12px 32px rgb(17 24 39 / 0.16);
+  --shadow-sm: 0 1px 2px rgb(11 18 32 / 0.06);
+  --shadow-lg: 0 12px 32px rgb(11 18 32 / 0.16);
 
   /* Layout */
-  --container: 1200px;
-  --header-h: 72px;
+  --container: 1140px; /* kontent kengligi */
+  --gutter: 24px; /* container yon oralig'i */
+  --header-h: 90px; /* Figma: 20 + tugma 50 + 20 */
   --sidebar-w: 248px;
   --z-header: 50;
+  --z-dropdown: 60;
   --z-modal: 100;
   --z-toast: 200;
 
   --transition: 160ms ease;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gutter: 16px;
+    --header-h: 64px;
+  }
 }

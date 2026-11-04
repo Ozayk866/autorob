@@ -1,5 +1,10 @@
 {
-  "common": { "loading": "Yuklanmoqda…", "save": "Saqlash", "cancel": "Bekor qilish", "back": "Orqaga" },
+  "common": {
+    "loading": "Yuklanmoqda…",
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "back": "Orqaga"
+  },
   "nav": {
     "solutions": "Yechimlar",
     "about": "Biz haqimizda",
@@ -17,7 +22,9 @@
     "aboutContent": "Tarix va raqamlar",
     "texts": "Sahifa matnlari",
     "settings": "Sozlamalar",
-    "admins": "Adminlar"
+    "admins": "Adminlar",
+    "openMenu": "Menyuni ochish",
+    "closeMenu": "Menyuni yopish"
   },
   "lead": {
     "cta": "Ma'lumot qoldirish",
@@ -32,7 +39,10 @@
       "failed": "Yuborilmadi. Qayta urinib ko'ring yoki qo'ng'iroq qiling:"
     }
   },
-  "form": { "required": "Majburiy maydon", "slug": "Faqat kichik lotin harflari, raqamlar va «-»" },
+  "form": {
+    "required": "Majburiy maydon",
+    "slug": "Faqat kichik lotin harflari, raqamlar va «-»"
+  },
   "auth": {
     "errors": {
       "email": "Email noto'g'ri",
@@ -41,5 +51,26 @@
       "passwordMatch": "Parollar mos emas"
     }
   },
-  "notFound": { "title": "Sahifa topilmadi", "home": "Bosh sahifaga qaytish" }
+  "contacts": {
+    "address": "Namangan, ____ ko'chasi",
+    "workHours": "Du–Sha: 09:00–18:00"
+  },
+  "solutionCategories": {
+    "crm": "CRM",
+    "erp": "ERP",
+    "robotlar": "Robotlar",
+    "stanoklar": "Stanok liniyalari"
+  },
+  "footer": {
+    "tagline": "Avtomatlashtirish, robotlashtirish va smart yechimlar.",
+    "solutions": "Yechimlar",
+    "company": "Kompaniya",
+    "contact": "Aloqa",
+    "rights": "Barcha huquqlar himoyalangan.",
+    "privacy": "Maxfiylik siyosati"
+  },
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "home": "Bosh sahifaga qaytish"
+  }
 }
