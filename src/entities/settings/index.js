@@ -9,3 +9,4 @@ export {
   useSendTelegramTest,
 } from "./queries";
 export { settingsSchema } from "./schema";
+export { useContacts } from "./useContacts";

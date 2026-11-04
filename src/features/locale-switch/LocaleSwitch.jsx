@@ -1,31 +1,75 @@
+import { useEffect, useId, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
 import { HTML_LANG, LOCALES, localizePath, stripLocale, useLocale } from "@/shared/i18n";
 import { cn, track } from "@/shared/lib";
+import { Icon } from "@/shared/ui";
 import styles from "./LocaleSwitch.module.css";
 
 // Til nomlari har doim o'z yozuvida ko'rsatiladi
-const LABELS = { uz: "O'z", "uz-Cyrl": "Ўз", ru: "Ру" };
+const CODES = { uz: "UZ", "uz-Cyrl": "ЎЗ", ru: "RU" };
+const NAMES = { uz: "O'zbekcha", "uz-Cyrl": "Ўзбекча", ru: "Русский" };
 
-/** Joriy sahifaning boshqa tildagi manziliga o'tkazadi (query saqlanadi) */
-export function LocaleSwitch() {
+/**
+ * Til tanlash ro'yxati. Joriy sahifaning boshqa tildagi manziliga o'tkazadi (query saqlanadi).
+ * @param {{ placement?: "down" | "up", className?: string }} props  up — ekran pastida (mobil menyu)
+ */
+export function LocaleSwitch({ placement = "down", className }) {
   const lang = useLocale();
   const { pathname, search } = useLocation();
   const base = stripLocale(pathname);
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
+  const menuId = useId();
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (e) => !rootRef.current?.contains(e.target) && setOpen(false);
+    const onKeyDown = (e) => e.key === "Escape" && setOpen(false);
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
 
   return (
-    <nav className={styles.root}>
-      {LOCALES.map((l) => (
-        <Link
-          key={l}
-          to={localizePath(base, l) + search}
-          hrefLang={HTML_LANG[l]}
-          aria-current={l === lang ? "true" : undefined}
-          className={cn(styles.item, l === lang && styles.active)}
-          onClick={() => track("locale_changed", { to: l })}
-        >
-          {LABELS[l]}
-        </Link>
-      ))}
-    </nav>
+    <div ref={rootRef} className={cn(styles.root, className)}>
+      <button
+        type="button"
+        className={styles.trigger}
+        aria-haspopup="true"
+        aria-expanded={open}
+        aria-controls={menuId}
+        onClick={() => setOpen((v) => !v)}
+      >
+        <Icon name="globe" size={18} />
+        <span>{CODES[lang]}</span>
+        <Icon name="chevron-down" size={16} className={cn(styles.chevron, open && styles.chevronOpen)} />
+      </button>
+
+      {open && (
+        <ul id={menuId} className={cn(styles.menu, styles[placement])}>
+          {LOCALES.map((l) => (
+            <li key={l}>
+              <Link
+                to={localizePath(base, l) + search}
+                hrefLang={HTML_LANG[l]}
+                lang={HTML_LANG[l]}
+                aria-current={l === lang ? "true" : undefined}
+                className={cn(styles.item, l === lang && styles.active)}
+                onClick={() => {
+                  setOpen(false);
+                  if (l !== lang) track("locale_changed", { to: l });
+                }}
+              >
+                <span className={styles.code}>{CODES[l]}</span>
+                {NAMES[l]}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
