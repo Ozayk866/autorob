@@ -1,0 +1,25 @@
+.region {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.toast {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--ink-900);
+  color: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+.success {
+  border-left: 4px solid var(--success-500);
+}
+
+.error {
+  border-left: 4px solid var(--danger-500);
+}

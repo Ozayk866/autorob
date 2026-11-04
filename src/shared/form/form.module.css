@@ -1,0 +1,29 @@
+.field {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--ink-700);
+}
+
+.hint {
+  font-size: var(--text-xs);
+  color: var(--ink-500);
+}
+
+.error {
+  font-size: var(--text-xs);
+  color: var(--danger-500);
+}
+
+.counter {
+  font-size: var(--text-xs);
+  color: var(--ink-500);
+}
+
+.counterOver {
+  color: var(--danger-500);
+}

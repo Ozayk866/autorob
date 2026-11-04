@@ -1,0 +1,38 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    border-color var(--transition);
+}
+
+.root:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.primary {
+  background: var(--accent-500);
+  color: var(--white);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-600);
+}
+
+.secondary {
+  background: var(--white);
+  border-color: var(--ink-300);
+  color: var(--ink-900);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--ink-700);
+}

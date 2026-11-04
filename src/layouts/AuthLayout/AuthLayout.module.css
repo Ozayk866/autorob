@@ -1,0 +1,16 @@
+.root {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: var(--space-4);
+  background: var(--ink-100);
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+}
