@@ -1,6 +1,6 @@
 import styles from "./TelegramTestButton.module.css";
 
-/** TODO: useSendTelegramTest → toast: «Test xabar yuborildi» yoki xato sababi */
+/** TODO: test xabar yuborish → toast. ⚠️ Backend'da test API'si HALI YO'Q */
 export function TelegramTestButton() {
   return <div className={styles.root} />;
 }

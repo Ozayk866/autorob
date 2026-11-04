@@ -1,16 +1,23 @@
 import { z } from "zod";
 import { localizedText } from "@/shared/i18n";
 
-// Admin formasi sxemasi. TODO: maydonlarni Figma va backend bilan solishtiring
+export const SOLUTION_CATEGORIES = ["SERVICE", "EDUCATION", "MANUFACTURING"];
+
+// Admin formasi (POST/PATCH body) — kontrakt §10 «Yechimlar»
 export const solutionSchema = z.object({
-  slug: z.string().regex(/^[a-z0-9-]+$/, "form.slug"),
-  category: z.string(),
   title: localizedText(true),
-  summary: localizedText(),
-  body: localizedText(),
-  features: z.array(z.object({ title: localizedText(true), text: localizedText() })),
-  priceFrom: z.number().nonnegative().optional(),
-  imageId: z.string().optional(),
-  published: z.boolean(),
-  seo: z.object({ title: localizedText(), description: localizedText() }),
+  shortDescription: localizedText(true),
+  body: localizedText(true), // HTML
+  slug: z
+    .string()
+    .regex(/^[a-z0-9-]*$/, "form.slug")
+    .max(120)
+    .optional(),
+  features: z.array(localizedText(true)).max(30),
+  categories: z.array(z.enum(SOLUTION_CATEGORIES)).max(3),
+  coverImageId: z.string().uuid().nullable().optional(),
+  showPriceRequest: z.boolean(),
+  priceText: localizedText().nullable().optional(),
+  status: z.enum(["DRAFT", "PUBLISHED"]),
+  seo: z.object({ metaTitle: localizedText().optional(), metaDescription: localizedText().optional() }),
 });

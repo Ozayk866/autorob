@@ -1,11 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { getSettings, getSettingsAdmin, getTelegramStatus, sendTelegramTest, updateSettings } from "./api";
+import { getSettings, getSettingsAdmin, updateSettings } from "./api";
 
 export const settingsKeys = {
   all: ["settings"],
   public: (lang) => [...settingsKeys.all, "public", lang],
   admin: () => [...settingsKeys.all, "admin"],
-  telegram: () => [...settingsKeys.all, "telegram"],
 };
 
 export const settingsQuery = (lang) => ({
@@ -16,8 +15,6 @@ export const settingsQuery = (lang) => ({
 
 export const useSettings = (lang) => useQuery(settingsQuery(lang));
 export const useSettingsAdmin = () => useQuery({ queryKey: settingsKeys.admin(), queryFn: getSettingsAdmin });
-export const useTelegramStatus = () =>
-  useQuery({ queryKey: settingsKeys.telegram(), queryFn: getTelegramStatus });
 
 export function useUpdateSettings() {
   const qc = useQueryClient();
@@ -26,5 +23,3 @@ export function useUpdateSettings() {
     onSuccess: () => qc.invalidateQueries({ queryKey: settingsKeys.all }),
   });
 }
-
-export const useSendTelegramTest = () => useMutation({ mutationFn: sendTelegramTest });

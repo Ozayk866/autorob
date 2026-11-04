@@ -1,26 +1,12 @@
-export {
-  getSolutions,
-  getSolution,
-  getSolutionSlugs,
-  getSolutionsAdmin,
-  getSolutionAdmin,
-  createSolution,
-  updateSolution,
-  deleteSolution,
-  reorderSolutions,
-} from "./api";
+export { getSolutions, getSolution, solutionsAdminApi } from "./api";
 export {
   solutionKeys,
   solutionsQuery,
   solutionQuery,
   useSolutions,
   useSolution,
-  useSolutionsAdmin,
-  useSolutionAdmin,
-  useCreateSolution,
-  useUpdateSolution,
-  useDeleteSolution,
+  solutionAdmin,
 } from "./queries";
-export { solutionSchema } from "./schema";
+export { solutionSchema, SOLUTION_CATEGORIES } from "./schema";
 export { SolutionCard } from "./ui/SolutionCard";
 export { TranslationStatus } from "./ui/TranslationStatus";

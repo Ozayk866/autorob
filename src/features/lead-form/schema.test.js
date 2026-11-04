@@ -1,4 +1,4 @@
-import { isBot, leadSchema } from "./schema";
+import { buildLeadPayload, leadSchema } from "./schema";
 
 describe("leadSchema", () => {
   it("telefonni normallashtiradi", () => {
@@ -12,10 +12,26 @@ describe("leadSchema", () => {
     const messages = r.error.issues.map((i) => i.message);
     expect(messages).toEqual(expect.arrayContaining(["lead.errors.name", "lead.errors.phone"]));
   });
+});
 
-  it("honeypot sxemada xato bermaydi, isBot uni aniqlaydi", () => {
+describe("buildLeadPayload", () => {
+  const context = { formStartedAt: 1000, pagePath: "/yechimlar/crm-tizimi", locale: "uz" };
+
+  it("backend kutgan maydonlarni yig'adi, bo'sh ixtiyoriy maydonlarni tashlab yuboradi", () => {
+    const values = leadSchema.parse({ name: "Ali", phone: "+998 90 123 45 67", solutionId: "", message: "" });
+    expect(buildLeadPayload(values, context)).toEqual({
+      name: "Ali",
+      phone: "998901234567",
+      website: "",
+      pagePath: "/yechimlar/crm-tizimi",
+      locale: "uz",
+      formStartedAt: 1000,
+    });
+  });
+
+  it("honeypot va utm'ni o'zgartirmasdan yuboradi (spamni backend aniqlaydi)", () => {
     const values = leadSchema.parse({ name: "Ali", phone: "998901234567", website: "spam.com" });
-    expect(isBot(values)).toBe(true);
-    expect(isBot({ ...values, website: "" })).toBe(false);
+    const payload = buildLeadPayload(values, { ...context, utm: { source: "google" } });
+    expect(payload).toMatchObject({ website: "spam.com", utm: { source: "google" } });
   });
 });

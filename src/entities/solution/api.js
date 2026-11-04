@@ -1,18 +1,26 @@
-import { api } from "@/shared/api";
+import { adminResource, api } from "@/shared/api";
 import { toQuery } from "@/shared/lib";
 
-// TODO: endpoint'larni backend kontraktiga qarab moslang
-// Public javob: tarjima maydonlari oddiy string (?lang=). Admin javob: { uz, "uz-Cyrl", ru }.
+// Backend: docs/API_CONTRACT.md §8 (public), §10 «Yechimlar» (admin)
 
-export const getSolutions = (lang, filters) => api("/api/public/solutions" + toQuery({ lang, ...filters }));
-export const getSolution = (slug, lang) => api(`/api/public/solutions/${slug}${toQuery({ lang })}`);
-/** Prerender uchun: barcha nashr qilingan slug'lar */
-export const getSolutionSlugs = () => api("/api/public/solutions/slugs");
+/** @typedef {"service" | "education" | "manufacturing"} SolutionCategory  so'rovda kichik harf, javobda KATTA */
+/** @typedef {import("@/shared/api/types").Image} Image */
+/**
+ * @typedef {{ id: string, slug: string, title: string, shortDescription: string,
+ *   categories: ("SERVICE" | "EDUCATION" | "MANUFACTURING")[], coverImage: Image | null }} SolutionListItem
+ */
+/**
+ * @typedef {SolutionListItem & { body: string, features: string[], showPriceRequest: boolean,
+ *   priceText: string | null, seo: { metaTitle: string | null, metaDescription: string | null },
+ *   faq: { id: string, question: string, answer: string }[], related: SolutionListItem[], updatedAt: string }} Solution
+ * body — tozalangan HTML
+ */
 
-export const getSolutionsAdmin = () => api("/api/admin/solutions");
-export const getSolutionAdmin = (id) => api(`/api/admin/solutions/${id}`);
-export const createSolution = (body) => api("/api/admin/solutions", { method: "POST", body });
-export const updateSolution = (id, body) => api(`/api/admin/solutions/${id}`, { method: "PATCH", body });
-export const deleteSolution = (id) => api(`/api/admin/solutions/${id}`, { method: "DELETE" });
-export const reorderSolutions = (ids) =>
-  api("/api/admin/solutions/reorder", { method: "PATCH", body: { ids } });
+/** @returns {Promise<SolutionListItem[]>} hammasi birdaniga (sahifalashsiz) */
+export const getSolutions = (lang, { category } = {}) =>
+  api("/api/public/solutions" + toQuery({ lang, category }));
+
+/** @returns {Promise<Solution>} topilmasa ApiError 404 */
+export const getSolution = (slug, lang) => api(`/api/public/solutions/${slug}` + toQuery({ lang }));
+
+export const solutionsAdminApi = adminResource("solutions");

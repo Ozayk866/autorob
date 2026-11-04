@@ -9,5 +9,5 @@
     "paths": { "@/*": ["src/*"] },
     "types": ["vite/client", "vitest/globals"]
   },
-  "include": ["src", "tests", "scripts"]
+  "include": ["src", "tests", "scripts", "mocks"]
 }

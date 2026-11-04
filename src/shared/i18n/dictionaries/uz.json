@@ -56,10 +56,9 @@
     "workHours": "Du–Sha: 09:00–18:00"
   },
   "solutionCategories": {
-    "crm": "CRM",
-    "erp": "ERP",
-    "robotlar": "Robotlar",
-    "stanoklar": "Stanok liniyalari"
+    "service": "Servis",
+    "education": "Ta'lim",
+    "manufacturing": "Ishlab chiqarish"
   },
   "footer": {
     "tagline": "Avtomatlashtirish, robotlashtirish va smart yechimlar.",

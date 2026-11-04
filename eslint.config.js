@@ -28,7 +28,7 @@ const below = {
 };
 
 export default [
-  { ignores: ["dist", "dist-ssr", "node_modules", "coverage"] },
+  { ignores: ["dist", "dist-ssr", "node_modules", "coverage", "public/mockServiceWorker.js"] },
   js.configs.recommended,
   {
     files: ["**/*.{js,jsx}"],
@@ -100,7 +100,7 @@ export default [
     },
   },
   {
-    files: ["tests/**/*.{js,jsx}", "src/**/*.test.{js,jsx}"],
+    files: ["tests/**/*.{js,jsx}", "src/**/*.test.{js,jsx}", "mocks/**/*.test.js"],
     languageOptions: { globals: { ...globals.vitest } },
   },
 ];

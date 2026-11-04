@@ -8,7 +8,7 @@ import { PartnersStrip } from "@/widgets/site/partners-strip";
 import { BlogPreview } from "@/widgets/site/blog-preview";
 import { CtaBand } from "@/widgets/site/cta-band";
 
-/** TODO: bosh sahifa; Seo title/description — usePageTexts("home") */
+/** TODO: bosh sahifa; Seo title/description — t("home.seo.*") — docs/tz/01-bosh-sahifa.md */
 export function HomePage() {
   return (
     <>
