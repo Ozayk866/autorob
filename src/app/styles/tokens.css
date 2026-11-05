@@ -3,17 +3,34 @@
 :root {
   /* Ranglar — asosiy */
   --white: #ffffff;
-  --ink-900: #0b1220; /* ink/900 — header, footer, qorong'i fon */
-  --ink-800: #121a2c;
-  --ink-700: #374151;
-  --ink-500: #6b7280;
-  --ink-300: #d1d5db;
-  --ink-100: #f3f4f6;
+  --ink-900: #0b1220; /* ink/900 — header, footer, qorong'i fon; oq fondagi sarlavhalar */
+  --ink-800: #111a2e; /* qorong'i kartalar (ariza formasi) */
+  --ink-750: #1a2540; /* qorong'i input foni */
+  --ink-700: #344054;
+  --ink-600: #475467; /* asosiy matn (oq fonda) */
+  --ink-500: #667085; /* ikkinchi darajali matn, sana */
+  --ink-300: #d0d5dd;
+  --ink-200: #e4e7ec; /* kartalar chegarasi */
+  --ink-100: #f2f4f7;
+  --ink-50: #f5f7fa; /* och bo'limlar foni */
 
   /* Brend (ko'k) — tugmalar, logotip, havolalar */
-  --accent-600: #1f58e6;
+  --accent-600: #1f5cd9;
   --accent-500: #2f6bff;
-  --accent-100: #e8efff;
+  --accent-300: #93b0ff;
+  --accent-100: #eaf0ff; /* ikonka foni */
+  --accent-900: #172b61; /* qorong'i ko'k gradient oxiri */
+
+  /* Rasm o'rnidagi gradientlar (hero slaydlari, rasmsiz kartalar) — Figma «HeroSlider» palitrasi */
+  --art-blue-from: #0d215c;
+  --art-blue-to: #1f5cd9;
+  --art-teal-from: #0a2e42;
+  --art-teal-to: #12739e;
+  --art-slate-from: #1a1f2b;
+  --art-slate-to: #5c6b85;
+  --art-indigo-from: #12123d;
+  --art-indigo-to: #4d42c7;
+  --art-sky-to: #4c9aff;
 
   /* Qorong'i fon ustida */
   --text-on-dark: #ffffff; /* text/on-dark */
@@ -21,9 +38,12 @@
   --border-dark: #24304a; /* border/dark */
 
   /* Holatlar */
-  --success-500: #22c55e;
-  --danger-500: #ef4444;
-  --warning-500: #f59e0b;
+  --success-500: #12b76a;
+  --success-100: #d1fadf;
+  --danger-500: #f04438;
+  --danger-300: #fda29b; /* xato matni qorong'i fonda */
+  --danger-100: #fee4e2;
+  --warning-500: #f79009;
 
   /* Shriftlar */
   --font-display: "Unbounded", system-ui, sans-serif;
@@ -38,7 +58,13 @@
   --text-xl: 1.5rem; /* 24 */
   --text-2xl: 2rem; /* 32 */
   --text-3xl: 3rem; /* 48 */
+  --text-h2: clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem); /* 40 — bo'lim sarlavhasi (28 mobilda) */
+  --text-h1: clamp(1.75rem, 1.1rem + 3vw, 3.5rem); /* 56 — hero sarlavhasi (~29 mobilda) */
+  --text-stat: clamp(2rem, 1.6rem + 1.2vw, 2.5rem); /* 40 — raqamlar */
   --leading-sm: 1.25rem; /* 20 — Body/S, Label/M */
+  --leading-heading: 1.15;
+  --leading-body: 1.7; /* 16 / 28 — lead matnlar */
+  --tracking-eyebrow: 0.08em;
   --tracking-logo: 0.04em; /* logotip: 18px da 0.72px */
 
   /* Oraliqlar */
@@ -53,13 +79,17 @@
   --space-9: 2.25rem;
   --space-10: 2.5rem;
   --space-12: 3rem;
+  --space-14: 3.5rem;
   --space-16: 4rem;
   --space-18: 4.5rem;
+  --space-20: 5rem;
+  --space-section: clamp(4rem, 2.5rem + 5vw, 7.5rem); /* 120 — bo'limlar yuqori/past oralig'i (64 mobilda) */
 
   /* Shakl */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 999px;
   --shadow-sm: 0 1px 2px rgb(11 18 32 / 0.06);
   --shadow-lg: 0 12px 32px rgb(11 18 32 / 0.16);

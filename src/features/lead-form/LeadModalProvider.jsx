@@ -3,12 +3,19 @@ import { track } from "@/shared/lib";
 import { LeadModalContext } from "./LeadModalContext";
 import { LeadModal } from "./LeadModal";
 
-/** SiteLayout ichida turadi: istalgan joydan useLeadModal().open(solutionId) bilan ochiladi */
+/**
+ * SiteLayout ichida turadi. Istalgan joydan:
+ *   const { open } = useLeadModal();
+ *   open()                                  // oddiy ariza
+ *   open(solution.id)                       // «Narxini so'rash» — yechim tanlangan
+ *   open(solution.id, { message: "Demo" })  // «Demo ko'rish»
+ */
 export function LeadModalProvider({ children }) {
-  const [state, setState] = useState({ isOpen: false, solutionId: undefined });
+  const [state, setState] = useState({ isOpen: false, solutionId: undefined, message: undefined, key: 0 });
 
-  const open = useCallback((solutionId) => {
-    setState({ isOpen: true, solutionId });
+  const open = useCallback((solutionId, { message } = {}) => {
+    // key — har ochilganda forma toza holatdan boshlanadi
+    setState((s) => ({ isOpen: true, solutionId, message, key: s.key + 1 }));
     track("lead_modal_opened");
   }, []);
   const close = useCallback(() => setState((s) => ({ ...s, isOpen: false })), []);
@@ -17,7 +24,13 @@ export function LeadModalProvider({ children }) {
   return (
     <LeadModalContext value={value}>
       {children}
-      <LeadModal isOpen={state.isOpen} solutionId={state.solutionId} onClose={close} />
+      <LeadModal
+        key={state.key}
+        isOpen={state.isOpen}
+        solutionId={state.solutionId}
+        message={state.message}
+        onClose={close}
+      />
     </LeadModalContext>
   );
 }

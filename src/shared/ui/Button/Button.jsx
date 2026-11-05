@@ -1,13 +1,48 @@
+import { Link } from "react-router";
 import { cn } from "@/shared/lib/cn";
+import { Icon } from "../Icon";
 import styles from "./Button.module.css";
 
 /**
- * TODO: loading holati, ikonka bilan
- * @param {{ variant?: "primary" | "secondary" | "ghost", size?: "md" | "lg" } & import("react").ButtonHTMLAttributes<HTMLButtonElement>} props
- * lg — 50px (header CTA), md — 44px
+ * Tugma yoki tugma ko'rinishidagi havola (`to` berilsa — react-router Link).
+ * @param {{
+ *   variant?: "primary" | "secondary" | "light" | "outline" | "ghost",
+ *   size?: "md" | "lg",
+ *   block?: boolean,
+ *   to?: string,
+ *   iconRight?: string,
+ * } & import("react").ButtonHTMLAttributes<HTMLButtonElement>} props
+ * lg — 50px (hero, CTA), md — 44px; block — to'liq kenglik; iconRight — o'ngdagi ikonka (masalan "arrow-right")
  */
-export function Button({ variant = "primary", size = "md", type = "button", className, ...props }) {
+export function Button({
+  variant = "primary",
+  size = "md",
+  block = false,
+  to,
+  iconRight,
+  type = "button",
+  className,
+  children,
+  ...props
+}) {
+  const classes = cn(styles.root, styles[variant], styles[size], block && styles.block, className);
+  const content = (
+    <>
+      {children}
+      {iconRight && <Icon name={iconRight} size={18} className={styles.icon} />}
+    </>
+  );
+
+  if (to) {
+    return (
+      <Link to={to} className={classes} {...props}>
+        {content}
+      </Link>
+    );
+  }
   return (
-    <button type={type} className={cn(styles.root, styles[variant], styles[size], className)} {...props} />
+    <button type={type} className={classes} {...props}>
+      {content}
+    </button>
   );
 }

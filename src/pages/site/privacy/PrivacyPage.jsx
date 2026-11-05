@@ -1,11 +1,13 @@
 import { Seo } from "@/shared/seo";
+import "./PrivacyPage.css";
 
-/** TODO: maxfiylik siyosati (matn — useMessages("privacy") — docs/tz/09-404-va-maxfiylik.md) */
+// Maxfiylik siyosati — topshiriq: docs/tz/word/09_404_va_Maxfiylik_Islomjon.docx
+// Klass nomlari «privacy-» bilan boshlanadi (PrivacyPage.css)
+
 export function PrivacyPage() {
   return (
     <>
       <Seo />
-      <div data-page="privacy" />
     </>
   );
 }

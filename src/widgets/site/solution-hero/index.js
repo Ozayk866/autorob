@@ -1,1 +1,0 @@
-export { SolutionHero } from "./SolutionHero";

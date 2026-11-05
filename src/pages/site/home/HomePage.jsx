@@ -1,26 +1,30 @@
-import { Seo } from "@/shared/seo";
+import { useT } from "@/shared/i18n";
+import { organizationLd, Seo } from "@/shared/seo";
 import { HeroSlider } from "@/widgets/site/hero-slider";
+import { StatsRow } from "@/widgets/site/stats-row";
 import { SolutionsPath } from "@/widgets/site/solutions-path";
 import { AudienceCards } from "@/widgets/site/audience";
 import { Advantages } from "@/widgets/site/advantages";
-import { StatsRow } from "@/widgets/site/stats-row";
 import { PartnersStrip } from "@/widgets/site/partners-strip";
 import { BlogPreview } from "@/widgets/site/blog-preview";
 import { CtaBand } from "@/widgets/site/cta-band";
 
-/** TODO: bosh sahifa; Seo title/description — t("home.seo.*") — docs/tz/01-bosh-sahifa.md */
+/** Bosh sahifa (dizayn: «Bosh sahifa — Desktop 1440»). Har bo'lim — alohida widget. */
 export function HomePage() {
+  const t = useT();
+
   return (
     <>
-      <Seo />
+      <Seo title={t("home.seo.title")} description={t("home.seo.description")} />
+      <script type="application/ld+json">{JSON.stringify(organizationLd())}</script>
       <HeroSlider />
+      <StatsRow />
       <SolutionsPath />
       <AudienceCards />
       <Advantages />
-      <StatsRow />
       <PartnersStrip />
       <BlogPreview />
-      <CtaBand />
+      <CtaBand showContacts showSolutionSelect />
     </>
   );
 }

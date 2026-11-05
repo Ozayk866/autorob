@@ -11,4 +11,14 @@ export function formatPhone(value) {
   return ["+998", ...parts].join(" ");
 }
 
+/**
+ * Telefon input'i uchun niqob: foydalanuvchi nima yozsa ham "+998 90 123 45 67" ko'rinishiga keltiradi.
+ * Hamma raqam o'chirilsa — bo'sh qator (prefiks "+998" qolib ketmaydi).
+ */
+export function maskPhoneInput(raw) {
+  const digits = String(raw).replace(/\D/g, "");
+  const local = (digits.startsWith("998") ? digits.slice(3) : digits).slice(0, 9);
+  return local ? formatPhone(`998${local}`) : "";
+}
+
 export const isFullPhone = (value) => /^998\d{9}$/.test(String(value).replace(/\D/g, ""));

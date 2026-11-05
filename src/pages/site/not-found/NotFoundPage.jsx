@@ -1,17 +1,19 @@
-import { Link } from "react-router";
 import { routes } from "@/shared/config";
-import { useLocale, useT } from "@/shared/i18n";
+import { useLocale } from "@/shared/i18n";
 import { Seo } from "@/shared/seo";
+import { Button, Icon } from "@/shared/ui";
+import "./NotFoundPage.css";
 
-/** TODO: Figma'dagi 404 dizayni */
+// 404 sahifa — topshiriq: docs/tz/word/09_404_va_Maxfiylik_Islomjon.docx
+// Klass nomlari «notfound-» bilan boshlanadi (NotFoundPage.css)
+
 export function NotFoundPage() {
   const lang = useLocale();
-  const t = useT();
+
   return (
-    <section className="container">
-      <Seo title={t("notFound.title")} noindex />
-      <h1>{t("notFound.title")}</h1>
-      <Link to={routes.home(lang)}>{t("notFound.home")}</Link>
-    </section>
+    <>
+      {/* noindex — 404 sahifa Google'da chiqmasin. Bu qatorni o'chirmang */}
+      <Seo title="Sahifa topilmadi" noindex />
+    </>
   );
 }

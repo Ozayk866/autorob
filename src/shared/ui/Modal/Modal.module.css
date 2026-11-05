@@ -1,14 +1,74 @@
+/* Dizayn: fon ink/900 60% shaffof, oq karta */
 .backdrop {
   position: fixed;
   inset: 0;
   z-index: var(--z-modal);
   display: grid;
   place-items: center;
-  background: rgb(17 24 39 / 0.5);
+  padding: var(--space-4);
+  overflow-y: auto;
+  background: rgb(11 18 32 / 0.6);
+  animation: fade 160ms ease-out;
 }
 
-.root {
-  padding: var(--space-6);
+.dialog {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  padding: var(--space-8);
   border-radius: var(--radius-lg);
   background: var(--white);
+  box-shadow: var(--shadow-lg);
+  animation: pop 200ms ease-out;
+}
+
+.dialog:focus {
+  outline: none;
+}
+
+.close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--ink-100);
+  color: var(--ink-600);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.close:hover {
+  background: var(--ink-200);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .dialog {
+    animation: none;
+  }
+}
+
+@media (max-width: 479px) {
+  .dialog {
+    padding: var(--space-6);
+  }
 }
