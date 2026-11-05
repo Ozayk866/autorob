@@ -1,0 +1,124 @@
+/* Dizayn: «HeroSlider» 1440×656 — qorong'i fon, o'ngda rasm o'rni, pastda tab'lar */
+.hero-slider {
+  position: relative;
+  background: var(--ink-900);
+  color: var(--text-on-dark);
+  overflow: hidden;
+}
+
+/* Hamma slayd bitta katakda — balandlik eng uzun slaydga teng */
+.hero-slider-slides {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* kenglik ekrandan oshmasin */
+}
+
+.hero-slider-slide {
+  grid-area: 1 / 1;
+  /* Fon: rasm (yoki rang) + chapdan qorong'ilik + pastdan qorong'ilik (Figma overlay'lari) */
+  background:
+    linear-gradient(to bottom, transparent 60%, rgb(11 18 32 / 0.9)),
+    linear-gradient(to right, rgb(11 18 32 / 0.96), rgb(11 18 32 / 0.75) 45%, rgb(11 18 32 / 0.15)),
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 72px),
+    var(--slide-image, radial-gradient(70% 110% at 78% 45%, var(--tone-from), var(--tone-to)));
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 600ms ease,
+    visibility 0s 600ms;
+}
+
+.hero-slider-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 600ms ease;
+}
+
+.hero-slider-blue {
+  --tone-from: var(--art-blue-to);
+  --tone-to: var(--art-blue-from);
+}
+
+.hero-slider-teal {
+  --tone-from: var(--art-teal-to);
+  --tone-to: var(--art-teal-from);
+}
+
+.hero-slider-slate {
+  --tone-from: var(--art-slate-to);
+  --tone-to: var(--art-slate-from);
+}
+
+.hero-slider-indigo {
+  --tone-from: var(--art-indigo-to);
+  --tone-to: var(--art-indigo-from);
+}
+
+.hero-slider-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  /* pastda tab'lar uchun joy */
+  padding-block: clamp(4rem, 3rem + 4vw, 7.5rem) clamp(9rem, 8rem + 2vw, 10.5rem);
+}
+
+.hero-slider-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-sm);
+}
+
+.hero-slider-counter {
+  color: var(--accent-500);
+  font-weight: 600;
+}
+
+.hero-slider-dash {
+  width: 40px;
+  height: 1px;
+  background: var(--border-dark);
+}
+
+.hero-slider-title {
+  max-width: min(620px, 100%);
+  font-size: var(--text-h1);
+  font-weight: 600;
+  line-height: 1.12;
+  overflow-wrap: break-word;
+}
+
+.hero-slider-accent {
+  color: var(--accent-500);
+}
+
+.hero-slider-text {
+  max-width: min(480px, 100%);
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+}
+
+.hero-slider-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slider-slide,
+  .hero-slider-active {
+    transition: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-slider-actions {
+    flex-direction: column;
+    align-self: stretch;
+  }
+}

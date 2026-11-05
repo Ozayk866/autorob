@@ -1,0 +1,61 @@
+/* Figma: Top bar — 63px, pastki chiziq border/dark, Body/S */
+.top-bar {
+  background: var(--ink-900);
+  border-bottom: 1px solid var(--border-dark);
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-sm);
+}
+
+.top-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-7);
+  min-height: 62px;
+}
+
+.top-bar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  white-space: nowrap;
+}
+
+.top-bar-icon {
+  color: var(--text-on-dark-muted);
+}
+
+.top-bar-spacer {
+  flex: 1;
+}
+
+.top-bar-link {
+  color: var(--text-on-dark);
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.top-bar-link:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 1023px) {
+  .top-bar-secondary {
+    display: none;
+  }
+
+  .top-bar-inner {
+    min-height: 44px;
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 479px) {
+  .top-bar-inner {
+    justify-content: space-between;
+  }
+
+  .top-bar-spacer {
+    display: none;
+  }
+}

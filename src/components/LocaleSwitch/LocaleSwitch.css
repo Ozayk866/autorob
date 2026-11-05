@@ -1,0 +1,87 @@
+.locale-switch {
+  position: relative;
+}
+
+/* Figma: LangSwitch 92×38 */
+.locale-switch-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 38px;
+  padding-inline: var(--space-3);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-on-dark);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: var(--leading-sm);
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.locale-switch-trigger:hover {
+  border-color: var(--text-on-dark-muted);
+}
+
+.locale-switch-chevron {
+  color: var(--text-on-dark-muted);
+  transition: transform var(--transition);
+}
+
+.locale-switch-chevron-open {
+  transform: rotate(180deg);
+}
+
+.locale-switch-menu {
+  position: absolute;
+  right: 0;
+  z-index: var(--z-dropdown);
+  min-width: 180px;
+  margin: 0;
+  padding: var(--space-2);
+  list-style: none;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  background: var(--ink-800);
+  box-shadow: var(--shadow-lg);
+}
+
+.locale-switch-down {
+  top: calc(100% + var(--space-2));
+}
+
+.locale-switch-up {
+  right: auto;
+  left: 0;
+  bottom: calc(100% + var(--space-2));
+}
+
+.locale-switch-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-sm);
+  text-decoration: none;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.locale-switch-item:hover {
+  background: var(--border-dark);
+  color: var(--text-on-dark);
+}
+
+.locale-switch-active {
+  color: var(--text-on-dark);
+}
+
+.locale-switch-code {
+  width: 24px;
+  font-weight: 600;
+}

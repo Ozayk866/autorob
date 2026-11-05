@@ -1,1 +1,0 @@
-export { HeroSlidesPage } from "./HeroSlidesPage";

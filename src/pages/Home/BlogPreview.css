@@ -1,0 +1,71 @@
+/* Dizayn: «Blog» — och fon, 3 ta BlogCard 389×340, oralig'i 16 */
+.blog-preview {
+  padding-block: var(--space-section);
+  background: var(--ink-50);
+}
+
+.blog-preview-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.blog-preview-head > :first-child {
+  max-width: 640px;
+}
+
+.blog-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-12) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-preview-skeleton {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.blog-preview-skeleton-cover {
+  aspect-ratio: 389 / 216;
+  border-radius: var(--radius-lg);
+  background: var(--ink-200);
+}
+
+.blog-preview-skeleton-line {
+  height: 16px;
+  background: var(--ink-200);
+}
+
+.blog-preview-skeleton-line:last-child {
+  width: 70%;
+}
+
+@media (max-width: 1023px) {
+  .blog-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .blog-preview-grid > :nth-child(3) {
+    display: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .blog-preview-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .blog-preview-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .blog-preview-grid > :nth-child(3) {
+    display: block;
+  }
+}

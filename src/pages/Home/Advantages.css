@@ -1,0 +1,68 @@
+/* Dizayn: «Afzalliklar» — chapda 480px matn, o'ngda 640px 2×2 (300×143, oralig'i 40) */
+.advantages {
+  padding-block: var(--space-section);
+  background: var(--ink-900);
+  color: var(--text-on-dark);
+}
+
+.advantages-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 480px) minmax(0, 640px);
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+.advantages-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-10);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.advantages-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-dark);
+}
+
+.advantages-icon {
+  color: var(--accent-500);
+}
+
+.advantages-title {
+  margin-top: var(--space-1);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.advantages-text {
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+@media (max-width: 1023px) {
+  .advantages-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+}
+
+@media (max-width: 639px) {
+  .advantages-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}

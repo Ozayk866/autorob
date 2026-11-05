@@ -1,0 +1,82 @@
+/* Dizayn: ichki sahifalar boshi — qorong'i gradient, o'ngda ko'k doira va nuqtali halqalar */
+.page-hero {
+  overflow: hidden;
+  background: linear-gradient(110deg, var(--ink-900) 40%, var(--accent-900) 100%);
+  color: var(--text-on-dark);
+}
+
+.page-hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  min-height: 300px;
+  padding-block: var(--space-12);
+}
+
+.page-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 600px;
+}
+
+.page-hero-title {
+  font-size: var(--text-h2);
+  font-weight: 600;
+  line-height: var(--leading-heading);
+}
+
+.page-hero-subtitle {
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+}
+
+.page-hero-art {
+  position: relative;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 220px;
+  height: 220px;
+  margin-right: var(--space-16);
+}
+
+/* Nuqtali halqalar */
+.page-hero-art::before,
+.page-hero-art::after {
+  content: "";
+  position: absolute;
+  border: 1px dashed rgb(169 180 200 / 0.18);
+  border-radius: var(--radius-full);
+}
+
+.page-hero-art::before {
+  inset: 0;
+}
+
+.page-hero-art::after {
+  inset: -70px;
+}
+
+.page-hero-circle {
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  border-radius: var(--radius-full);
+  background: var(--accent-500);
+  color: var(--white);
+}
+
+@media (max-width: 767px) {
+  .page-hero-inner {
+    min-height: 0;
+    padding-block: var(--space-10);
+  }
+
+  .page-hero-art {
+    display: none;
+  }
+}

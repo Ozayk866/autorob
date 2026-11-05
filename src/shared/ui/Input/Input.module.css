@@ -1,7 +1,0 @@
-.root {
-  composes: control from "../field.module.css";
-}
-
-.dark {
-  composes: dark from "../field.module.css";
-}

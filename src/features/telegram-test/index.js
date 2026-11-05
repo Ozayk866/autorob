@@ -1,1 +1,0 @@
-export { TelegramTestButton } from "./TelegramTestButton";

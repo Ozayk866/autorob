@@ -1,1 +1,0 @@
-export { FaqAdminPage } from "./FaqAdminPage";

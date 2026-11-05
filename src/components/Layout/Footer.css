@@ -1,0 +1,95 @@
+/* Figma: Footer — padding 72/40, bloklar orasi 48, ustunlar 200px, orasi 64 */
+.footer {
+  padding-block: var(--space-18) var(--space-10);
+  background: var(--ink-900);
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-sm);
+}
+
+.footer-top {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-16);
+}
+
+.footer-brand {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-self: flex-start;
+  text-decoration: none;
+}
+
+.footer-tagline {
+  max-width: 300px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.footer-column-title {
+  color: var(--text-on-dark);
+  font-size: var(--text-label);
+  font-weight: 600;
+}
+
+.footer-link {
+  align-self: flex-start;
+  color: var(--text-on-dark-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-link:hover {
+  color: var(--text-on-dark);
+}
+
+.footer-bottom {
+  margin-top: var(--space-12);
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-dark);
+}
+
+@media (max-width: 1023px) {
+  .footer-top {
+    flex-wrap: wrap;
+    gap: var(--space-10) var(--space-8);
+  }
+
+  .footer-brand {
+    flex-basis: 100%;
+  }
+
+  .footer-column {
+    width: auto;
+    flex: 1 1 160px;
+  }
+}
+
+@media (max-width: 639px) {
+  .footer {
+    padding-block: var(--space-12) var(--space-8);
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+  }
+}
