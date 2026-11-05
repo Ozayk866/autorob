@@ -7,7 +7,7 @@ export function SolutionProcess() {
   return (
     <section className="solution-process">
       <div className="container">
-        <SectionHeading eyebrow="Jarayon" title="Qanday joriy qilamiz" />
+        {/* <SectionHeading eyebrow="Jarayon" title="Qanday joriy qilamiz" /> */}
         {/* 4 bosqich */}
       </div>
     </section>

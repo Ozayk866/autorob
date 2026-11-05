@@ -6,7 +6,7 @@ export function SolutionRelated({ related }) {
   return (
     <section className="solution-related">
       <div className="container">
-        <SectionHeading eyebrow="Yana" title="Boshqa yechimlar" />
+        {/* <SectionHeading eyebrow="Yana" title="Boshqa yechimlar" /> */}
         {/* 3 ta karta */}
       </div>
     </section>

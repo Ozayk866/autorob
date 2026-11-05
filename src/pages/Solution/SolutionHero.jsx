@@ -9,7 +9,7 @@ export function SolutionHero({ solution }) {
 
   return (
     <section className="solution-hero">
-      <h1>salom</h1>
+      
     </section>
   );
 }

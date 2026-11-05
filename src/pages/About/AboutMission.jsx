@@ -8,13 +8,7 @@ export function AboutMission() {
   return (
     <section className="about-mission">
       <div className="container">
-        {/* chapda rasm: <CoverArt tone="blue" icon="user" /> */}
-        <SectionHeading
-          eyebrow="Missiyamiz"
-          title="Bizneslarni raqamli va avtomatlashgan qilamiz"
-          subtitle="Biz kichik qadamdan boshlaymiz: avval CRM bilan mijozlar bilan ishlashni tartiblaymiz, so'ng ERP, robotlar va to'liq stanok liniyalari bilan ishlab chiqarishni avtomatlashtiramiz."
-        />
-        {/* 2×2 raqamlar */}
+       
       </div>
     </section>
   );

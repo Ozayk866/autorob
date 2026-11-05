@@ -8,8 +8,7 @@ export function AboutHistory() {
   return (
     <section className="about-history">
       <div className="container">
-        <SectionHeading theme="dark" eyebrow="Tarix" title="Yo'limiz" />
-        {/* yillar chizig'i */}
+        
       </div>
     </section>
   );

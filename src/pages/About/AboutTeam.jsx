@@ -8,7 +8,7 @@ export function AboutTeam() {
   return (
     <section className="about-team">
       <div className="container">
-        <SectionHeading eyebrow="Jamoa" title="Loyihangiz ustida ishlaydiganlar" />
+        {/* <SectionHeading eyebrow="Jamoa" title="Loyihangiz ustida ishlaydiganlar" /> */}
         {/* 4 ta karta */}
       </div>
     </section>

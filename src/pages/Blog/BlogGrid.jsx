@@ -7,11 +7,11 @@ export function BlogGrid({ posts }) {
     <section className="blog-grid-section">
       <div className="container">
         <ul className="blog-grid">
-          {posts.map((post) => (
+          {/* {posts.map((post) => (
             <li key={post.id}>
               <PostCard post={post} />
             </li>
-          ))}
+          ))} */}
         </ul>
       </div>
     </section>

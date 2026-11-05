@@ -8,7 +8,7 @@ export function AboutTrust() {
   return (
     <section className="about-trust">
       <div className="container">
-        <SectionHeading eyebrow="Ishonch" title="Sertifikatlar va hamkorlar" />
+        {/* <SectionHeading eyebrow="Ishonch" title="Sertifikatlar va hamkorlar" /> */}
         {/* 6 ta karta */}
       </div>
     </section>

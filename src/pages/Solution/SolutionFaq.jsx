@@ -6,11 +6,11 @@ export function SolutionFaq({ title, faq }) {
   return (
     <section className="solution-faq">
       <div className="container">
-        <SectionHeading
+        {/* <SectionHeading
           eyebrow="FAQ"
           title={`${title} haqida savollar`}
           subtitle="Javob topmadingizmi? Ma'lumot qoldiring — tushuntirib beramiz."
-        />
+        /> */}
         {/* savollar */}
       </div>
     </section>
