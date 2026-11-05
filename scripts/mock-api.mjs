@@ -7,11 +7,12 @@ import { getResponse } from "msw";
 import { handlers } from "../mocks/handlers.js";
 
 const PORT = Number(process.env.MOCK_PORT ?? 4000);
-const ORIGINS = ["http://localhost:5173", "http://localhost:4173"];
+// Faqat lokal sahifalarga ruxsat (dev 5173, preview 4173 va boshqa portlar)
+const isLocalOrigin = (origin) => /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin ?? "");
 
 http
   .createServer(async (req, res) => {
-    const origin = ORIGINS.includes(req.headers.origin) ? req.headers.origin : ORIGINS[0];
+    const origin = isLocalOrigin(req.headers.origin) ? req.headers.origin : "http://localhost:5173";
     const cors = {
       "Access-Control-Allow-Origin": origin,
       "Access-Control-Allow-Credentials": "true",

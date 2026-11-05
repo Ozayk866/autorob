@@ -45,6 +45,8 @@ export default [
       ...react.configs["jsx-runtime"].rules,
       ...reactHooks.configs.recommended.rules,
       "react/prop-types": "off",
+      // O'zbekcha matndagi apostrof (o'quvchi, ko'k) JSX ichida oddiy yoziladi
+      "react/no-unescaped-entities": "off",
       "no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
     },
   },

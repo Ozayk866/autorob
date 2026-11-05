@@ -21,3 +21,4 @@ export { Icon } from "./Icon";
 export { Logo } from "./Logo";
 export { SectionHeading } from "./SectionHeading";
 export { CoverArt } from "./CoverArt";
+export { Breadcrumbs } from "./Breadcrumbs";
