@@ -28,6 +28,7 @@ export function Advantages() {
             <li key={item.title} className="advantages-item">
               <Icon name="check-circle" size={22} className="advantages-icon" />
               <h3 className="advantages-title">{item.title}</h3>
+              
               <p className="advantages-text">{item.text}</p>
             </li>
           ))}
