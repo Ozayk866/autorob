@@ -1,1 +1,0 @@
-export { FaqCategoryList } from "./FaqCategoryList";

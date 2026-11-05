@@ -1,0 +1,27 @@
+.select-wrap {
+  position: relative;
+}
+
+.select {
+  padding-right: var(--space-10);
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Tanlanmagan holat (placeholder) — kulrang */
+.select-empty {
+  color: var(--ink-500);
+}
+
+.control-dark.select-empty {
+  color: var(--text-on-dark-muted);
+}
+
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: var(--space-4);
+  color: var(--ink-500);
+  transform: translateY(-50%);
+  pointer-events: none;
+}

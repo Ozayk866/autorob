@@ -1,0 +1,118 @@
+.slide-progress {
+  position: absolute;
+  right: 0;
+  bottom: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.slide-progress-tabs {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.slide-progress-tab {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-sm);
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.slide-progress-tab:hover,
+.slide-progress-active {
+  color: var(--text-on-dark);
+}
+
+.slide-progress-track {
+  position: relative;
+  height: 2px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--border-dark);
+}
+
+.slide-progress-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--accent-500);
+  transform-origin: left;
+}
+
+.slide-progress-running {
+  animation: slide-progress-progress var(--slide-duration) linear forwards;
+}
+
+.slide-progress-paused {
+  animation-play-state: paused;
+}
+
+.slide-progress-label {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.slide-progress-number {
+  color: var(--text-on-dark-muted);
+}
+
+.slide-progress-active .slide-progress-number {
+  color: var(--accent-500);
+}
+
+.slide-progress-arrows {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.slide-progress-arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-on-dark);
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.slide-progress-arrow:hover {
+  border-color: var(--text-on-dark-muted);
+}
+
+@keyframes slide-progress-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Mobilda faqat raqamlar */
+@media (max-width: 767px) {
+  .slide-progress {
+    gap: var(--space-4);
+  }
+
+  .slide-progress-tabs {
+    gap: var(--space-2);
+  }
+
+  .slide-progress-name {
+    display: none;
+  }
+}
