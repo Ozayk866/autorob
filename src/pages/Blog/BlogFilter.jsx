@@ -5,5 +5,24 @@ import { postCategories as categories } from "@/data/posts";
 export function BlogFilter({ category, setCategory, search, setSearch }) {
   // ← shuni map qilasiz: categories.map((c) => …) — c.id, c.slug, c.name
 
-  return <div className="blog-filter"></div>;
+  return <div className="blog-filter">
+      <div className="container">
+            <button
+                className={category === "" ? "blog-chip_blog-chip--active" : "blog-chip"}
+                onClick={() => setCategory("")}
+              >
+                Hammasi
+            </button>
+
+        {categories.map((c) => (
+        <button
+        key={c.id}
+        className={category === c.slug ? "blog-chip blog-chip--active" : "blog-chip"}
+        onClick={() => setCategory(c.slug)}
+      >
+        {c.name}
+        </button>
+      ))}
+      </div>
+  </div>;
 }
