@@ -28,7 +28,7 @@ export function BlogPage() {
 
   return (
     <>
-      <PageHero />
+      <PageHero title="Blog" subtitle="Avtomatlashtirish, CRM, ERP va robotlashtirish bo'yicha amaliy maqolalar." icon="book-open" />
       <BlogFilter category={category} setCategory={setCategory} search={search} setSearch={setSearch} />
       <BlogFeatured post={featured} />
       <BlogGrid posts={rest} />

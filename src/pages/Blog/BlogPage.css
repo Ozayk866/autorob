@@ -1,2 +1,122 @@
 /* Stillar shu yerga. Klass nomlari «blog-» bilan boshlansin: .blog-card, .blog-title …
    Ranglar va oraliqlar: var(--ink-900), var(--accent-500), var(--space-6) … (src/app/styles/tokens.css) */
+.blog-card {
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+.blog-chip {
+  margin-top: 56px;
+  opacity: 1;
+  margin-right: 8px;
+  border-width: 1px;
+  background-color: #fff;
+  border: 1px solid #E4E7EC;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 15px ;
+}
+.blog-chip_blog-chip--active {
+  width: 98;
+  height: 42;
+  top: 457px;
+  left: 120px;
+  margin-right: 8px;
+  opacity: 1;
+  background-color:  #0B1220;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 15px ;
+}
+.img_u {
+  width: 700px;
+  height: 420px;
+  opacity: 1;
+
+}
+.blog-wrapper {
+  margin-top: 40px;
+  display: flex;
+  gap: 60px;
+}
+.list {
+  list-style: none;
+}
+.h1_u {
+  margin-bottom: 20px;
+  width: 345px;
+}
+.p_u {
+  font-family: Inter;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #475467;
+}
+.p_u2 {
+  margin-top: 28px;
+  font-family: Inter;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #475467;
+}
+.a_u{
+  color: #2F6BFF;
+  margin-top: 28px;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: 64px;
+  list-style: none;
+  padding: 0;
+}
+.button {
+  align-items: center;
+
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.b1 {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color:  #FFFFFF;
+  border: 1px solid #E4E7EC;
+  border-radius: 3px;
+}
+.b2 {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color:  #FFFFFF;
+  border: 1px solid #E4E7EC;
+  border-radius: 3px;
+}
+.b3 {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color:  #FFFFFF;
+  border: 1px solid #E4E7EC;
+  border-radius: 3px;
+}
+.b4 {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color:  #FFFFFF;
+  border: 1px solid #E4E7EC;
+  border-radius: 3px;
+}
+.b5 {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color:  #FFFFFF;
+  border: 1px solid #E4E7EC;
+  border-radius: 3px;
+}
+.b6 {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color:  #FFFFFF;
+  border: 1px solid #E4E7EC;
+  border-radius: 3px;
+}
