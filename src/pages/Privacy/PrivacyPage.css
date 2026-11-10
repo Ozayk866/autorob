@@ -1,2 +1,42 @@
-/* Stillar shu yerga. Klass nomlari «privacy-» bilan boshlansin: .privacy-card, .privacy-title …
+/* Klass nomlari «privacy-» bilan boshlansin: .privacy-card, .privacy-title …
    Ranglar va oraliqlar: var(--ink-900), var(--accent-500), var(--space-6) … (src/app/styles/tokens.css) */
+
+.privacy-domla {
+  width: 800px;
+  margin:  auto;
+  padding: 16px;
+}
+
+.privacy-head {
+  margin: 0 0 var(--space-6, 24px);
+  color: var(--ink-900, #0b1220);
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.privacy-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6, 24px);
+}
+
+.privacy-hero {
+  padding: 24px;
+  background: #fff;
+  border: 10px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+}
+
+.privacy-title {
+  margin: 12px;
+  color:  #0b1220;
+  
+}
+
+.privacy-text {
+  margin: 0;
+  color:  #0b1220;
+  opacity: 0.8;
+ 
+}
+

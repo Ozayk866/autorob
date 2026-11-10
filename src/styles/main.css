@@ -1,0 +1,16 @@
+.privacy-container {
+  padding: 20px;
+}
+
+.privacy-section {
+  margin-bottom: 20px;
+}
+
+.privacy-section h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.privacy-section p {
+  line-height: 1.6;
+}

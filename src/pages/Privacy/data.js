@@ -1,3 +1,5 @@
+import { data } from "react-router";
+
 // Maxfiylik siyosati matni — tayyor. PrivacyPage.jsx'da import qilingan, siz faqat map qilasiz.
 export const SECTIONS = [
   {
@@ -28,4 +30,11 @@ export const SECTIONS = [
     title: "7. Bog'lanish",
     text: "Maxfiylik bo'yicha savollar uchun: info@autorob.uz. So'rovingizga 3 ish kuni ichida javob beramiz.",
   },
+];
+// Qiziqtirgan yechimlar ro'yxati — o'zingizning xizmatlaringizga almashtiring
+export const SOLUTIONS = [
+  "CRM tizimi",
+  "Veb-sayt",
+  "Telegram-bot",
+  "Mobil ilova",
 ];
