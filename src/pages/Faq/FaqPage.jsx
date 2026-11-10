@@ -12,18 +12,19 @@ import "./FaqPage.css";
 
 export function FaqPage() {
   const lang = useLocale();
-  const [active, setActive] = useState(0); // tanlangan bo'lim tartib raqami
+  const [active, setActive] = useState(0); 
   const current = categories[active];
 
   return (
     <>
-      <PageHero />
-      {/* chapda bo'limlar, o'ngda savollar — .faq-layout ni CSS'da 2 ustun qilasiz */}
+      <PageHero title="Ko'p beriladigan savollar" subtitle="Narx, muddat, joriy etish va texnik yordam haqida eng ko'p so'raladigan savollar" />
+      {}
       <div className="container faq-layout">
         <FaqCategories categories={categories} active={active} setActive={setActive} />
         <FaqQuestions items={current?.items ?? []} />
       </div>
       <FaqHelp />
+      
     </>
   );
 }
