@@ -6,12 +6,22 @@ export function SolutionFeatures({ features }) {
   return (
     <section className="solution-features">
       <div className="container">
-        {/* <SectionHeading
+        <SectionHeading className="features-subtitle"
           eyebrow="Imkoniyatlar"
           title="Bir tizimda — hamma narsa"
           subtitle="Kerakli modullarni tanlaysiz, qolganini keyin qo'shasiz."
-        /> */}
-        {/* 6 ta karta */}
+        />
+        <ul className="features-list">
+        {
+          features.map((item)=>{
+            return <li className="features-item" key={item.name}>
+              <h4 className="features-title">{item}</h4>
+              <p className="features-text">Har bir mijoz tarixi: qo'ng'iroqlar, xabarlar,
+buyurtmalar.</p>
+            </li>
+          })
+        }
+        </ul>
       </div>
     </section>
   );
