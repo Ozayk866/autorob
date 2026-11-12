@@ -11,7 +11,7 @@ export function PostRelated({ posts }) {
           {posts.map((post) => (
             <li key={post.id}>
               <PostCard post={post} />
-            </li>
+            </li>  
           ))} 
         </ul>
       </div> 
