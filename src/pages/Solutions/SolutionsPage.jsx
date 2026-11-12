@@ -9,7 +9,7 @@ import "./SolutionsPage.css";
 export function SolutionsPage() {
   return (
     <>
-      <PageHero />
+      <PageHero  title="Yechimlar katalogi" subtitle="CRM'dan to'liq avtomatlashtirilgan stanok liniyasigacha — biznesingiz bosqichiga mos yechimni tanlang." icon="layers"/>
       <CatalogFilter />
       <CatalogGrid />
       <CtaBand />

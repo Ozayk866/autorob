@@ -1,2 +1,102 @@
 /* Stillar shu yerga. Klass nomlari «catalog-» bilan boshlansin: .catalog-card, .catalog-title …
    Ranglar va oraliqlar: var(--ink-900), var(--accent-500), var(--space-6) … (src/app/styles/tokens.css) */
+.soha{
+   width: 142px;
+height: 42px;
+top: 485px;
+left: 120px;
+opacity: 1;
+border-radius: 28px;
+border: none;
+   margin-right: 10px;
+   margin-top: 56px;
+}
+
+.bexa{
+   margin-top: 32px;
+   list-style: none;
+   width: 365px;
+   gap: 16px;
+   border: 1px solid #e0d9d9;
+   border-radius: 10px;   
+   
+}
+
+.img{
+   width: 351px;
+   margin-top: 8px;
+   margin-right: 8px;
+   margin-left: 8px;
+   
+
+}
+
+.wrapper{
+   display: flex;
+   gap: 16px;
+   flex-wrap: wrap;
+}
+
+.title{
+   font-family: Unbounded;
+font-weight: 400;
+font-style: Regular;
+font-size: 22px;
+line-height: 100%;
+letter-spacing: 0%;
+margin-top: 16px;
+margin-bottom: 11px;
+margin-left: 8px;
+}
+
+.info{
+   font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0%;
+margin-bottom: 35px;
+margin-left: 8px;
+color: #475467;
+}
+
+.link{
+   font-family: Inter;
+font-weight: 700;
+font-style: Bold;
+font-size: 15px;
+line-height: 100%;
+letter-spacing: 0%;  
+margin-left: 8px;
+color: #2F6BFF;
+display: flex;
+align-items: center;
+gap: 9px;
+}
+
+.link::after{
+   display: block;
+   content: "";
+   width: 9px;
+   height: 9px;background-image: url(./img/Group.svg);
+
+}
+
+.btn{
+   position: relative;
+   left: 215px;
+   bottom: 24px;
+   width: 131px;
+   height: 40px;
+   border-radius: 12px;
+   border: none;
+   background-color: #2F6BFF;
+   color: #ffff;
+   font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0%;
+}
