@@ -1,0 +1,60 @@
+.CRM1{
+    color: #2F6BFF;
+    border-radius: 15px;
+    background-color: rgba(234, 240, 255, 1);
+    border: none;
+}
+
+.vaqt{
+    color: #667085;
+}
+
+.CRM2{
+    color: #667085;
+}
+
+.div1{
+    display: flex;
+    gap: 12px;
+    margin-left: 320px;
+    margin-bottom: 26.2px;
+    margin-top: 30px;
+}
+
+.div2{
+    display: block;
+    margin-left: 320px;
+    margin-bottom: 26.2px;
+    margin-top: 30px;
+}
+
+.h22{
+    font-family: Unbounded;
+font-weight: 400;
+font-style: Regular;
+font-size: 44px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+color: rgba(11, 18, 32, 1);
+}
+
+.div3{
+    /* display: block; */
+    margin-left: 320px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.div3::before{
+    display: block;
+    content: '';
+    width: 40px;
+    height: 40px;
+    background-image: url(./img/person.svg);
+    background-repeat: no-repeat;
+    background-color: rgba(245, 247, 250, 1);
+    background-position: center;
+    border-radius: 50%;
+}
