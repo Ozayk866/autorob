@@ -14,7 +14,7 @@ export function PostRelated({ posts }) {
             </li>
           ))}
         </ul>
-      </div>
+      </div> 
     </section>
   );
 }
