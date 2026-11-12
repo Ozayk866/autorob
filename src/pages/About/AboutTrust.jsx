@@ -8,8 +8,19 @@ export function AboutTrust() {
   return (
     <section className="about-trust">
       <div className="container">
-        {/* <SectionHeading eyebrow="Ishonch" title="Sertifikatlar va hamkorlar" /> */}
-        {/* 6 ta karta */}
+        <div className="wrapper2">
+          <div className="hero2">
+           <SectionHeading eyebrow="Ishonch" title="Sertifikatlar va hamkorlar" />
+        </div>
+       <ul className="about1">
+       {partners.map((partner) => (
+       <li className="item13" key={partner.id}>
+       <h3 className="item12">{partner.name}</h3>
+       <p className="item11">{partner.logo}</p>
+       </li>
+        ))}
+        </ul>
+        </div>
       </div>
     </section>
   );

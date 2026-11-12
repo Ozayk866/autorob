@@ -13,6 +13,24 @@ export function CatalogFilter() {
   // «Hammasi» tugmasi (ro'yxatda yo'q, birinchi bo'lib qo'lda yozasiz): bosilganda setSearchParams({}), tanlangan: soha === ""
   // ← shuni map qilasiz: CATALOG_CATEGORIES.map((value) => …) — value: "service", "education", "manufacturing"
   //    tugma matni: t("solutionCategories." + value) → «Servis»; bosilganda setSearchParams({ soha: value }); tanlangan: soha === value
-
-  return <div className="catalog-filter"></div>;
+const FILTERS = [
+  { value: "", label: "Hammasi" },
+  { value: "service", label: "Servis" },
+  { value: "education", label: "Ta'lim" },
+  { value: "manufacturing", label: "Ishlab chiqarish" },
+];
+ return<div className="catalog-filter">
+  <div className="container">     
+     {
+      
+      FILTERS.map((item) =>{
+             
+      return  <button className="soha" key={item.value}>
+          {item.label}
+        </button>
+      })
+      
+    }
+    </div>
+  </div>;
 }
