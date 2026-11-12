@@ -10,7 +10,7 @@ import "./ContactsPage.css";
 export function ContactsPage() {
   return (
     <>
-      <PageHero />
+      <PageHero title="Kontaktlar" subtitle="Savolingiz bormi yoki loyihani muhokama qilmoqchimisiz? Biz bilan bog'laning." icon="phone" />
       {/* chapda kontaktlar, o'ngda forma — .contacts-layout ni CSS'da 2 ustun qilasiz */}
       <div className="container contacts-layout">
         <ContactsInfo />

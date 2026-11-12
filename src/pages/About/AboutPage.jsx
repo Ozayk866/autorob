@@ -11,7 +11,7 @@ import "./AboutPage.css";
 export function AboutPage() {
   return (
     <>
-      <PageHero />
+      <PageHero title="Biz haqimizda" subtitle="AUTOROB — O'zbekiston bizneslari uchun avtomatlashtirish varobotlashtirish yechimlarini yaratuvchi jamoa." icon="award"/>
       <AboutMission />
       <AboutHistory />
       <AboutTeam />

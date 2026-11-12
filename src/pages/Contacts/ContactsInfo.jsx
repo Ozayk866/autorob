@@ -1,3 +1,4 @@
+import { Icon } from "@/components";
 import { contacts } from "@/data/contacts";
 
 // Chapda 2×2 kartalar (Manzil, Telefon, Telegram, Ish vaqti) va «Ijtimoiy tarmoqlar» tugmalari
@@ -18,5 +19,22 @@ export function ContactsInfo() {
     { icon: "mail", label: "Email", href: contacts.emailHref },
   ].filter((s) => s.href);
 
-  return <div className="contacts-info"></div>;
+  return <div className="contacts-info">
+    {cards.map((card) =>
+      <li key={card.label} className="cards-li">
+        <Icon className="card-icon" name={card.icon} />
+        <p className="card-p">{card.label}</p>
+        <h5 className="card-h5">{card.href ? <a href={card.href}>{card.value}</a> : <strong>{card.value}</strong>}</h5>
+      </li>
+    )}
+    <div className="contacts-div">
+      <p className="contacts-p">Ijtimoiy tarmoqlar</p>
+      <div>
+        {socials.map((s) =>
+          <li className="s-li">
+            <Icon className="s-icon" name={s.icon} />
+          </li>
+        )}
+      </div></div>
+  </div>;
 }
